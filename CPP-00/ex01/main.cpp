@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:11:35 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:36:56 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:10:07 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,22 @@
 void    display_options()
 {
     std::cout << std::endl;
-    std::cout << "\033[38;5;141m          1.\033[0m" << " ADD" << std::endl;
-    std::cout << "\033[38;5;141m          2.\033[0m" << " SEARCH" << std::endl;
-    std::cout << "\033[38;5;141m          3.\033[0m" << " EXIT" << std::endl;
+    std::cout << PURPLE << "          1." << RESET << " ADD" << std::endl;
+    std::cout << PURPLE << "          2." << RESET << " SEARCH" << std::endl;
+    std::cout << PURPLE << "          3." << RESET << " EXIT" << std::endl;
     std::cout << std::endl;
-    std::cout << "Choose one option " << LIGHTPURPLE << "➤ " << RESET;
+    std::cout << "Choose one option " << PURPLE << "➤ " << RESET;
 }
 
 void displayBanner() {
     system("clear");
-    std::string banner = 
-        "\033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╗ \033[38;5;225m██\033[38;5;141m╗  \033[38;5;225m██\033[38;5;141m╗ \033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╗ \033[38;5;225m███\033[38;5;141m╗   \033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;225m██\033[38;5;225m███\033[38;5;141m╗\033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╗  \033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╗  \033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╗ \033[38;5;225m██\033[38;5;141m╗  \033[38;5;225m██\033[38;5;141m╗\n"
-        "\033[38;5;225m██\033[38;5;141m╔══\033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;141m║  \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m╔═══\033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╗  \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m╔════╝\033[38;5;225m██\033[38;5;141m╔══\033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;141m╔═══\033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;141m╔═══\033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;141m║ \033[38;5;225m██\033[38;5;141m╔╝\n"
-        "\033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╔╝\033[38;5;225m██\033[38;5;225m██\033[38;5;225m███\033[38;5;141m║\033[38;5;225m██\033[38;5;141m║   \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m╔\033[38;5;225m██\033[38;5;141m╗ \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;225m███\033[38;5;141m╗  \033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╔╝\033[38;5;225m██\033[38;5;141m║   \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m║   \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;225m███\033[38;5;141m╔╝ \n"
-        "\033[38;5;225m██\033[38;5;141m╔═══╝ \033[38;5;225m██\033[38;5;141m╔══\033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m║   \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m║\033[38;5;141m╚\033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m╔══╝  \033[38;5;225m██\033[38;5;141m╔══\033[38;5;225m██\033[38;5;141m╗\033[38;5;225m██\033[38;5;141m║   \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m║   \033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;141m╔═\033[38;5;225m██\033[38;5;141m╗ \n"
-        "\033[38;5;225m██\033[38;5;141m║     \033[38;5;225m██\033[38;5;141m║  \033[38;5;225m██\033[38;5;141m║\033[38;5;141m╚\033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╔╝\033[38;5;225m██\033[38;5;141m║ \033[38;5;141m╚\033[38;5;225m██\033[38;5;225m██\033[38;5;141m║\033[38;5;225m██\033[38;5;225m██\033[38;5;225m███\033[38;5;141m╗\033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╔╝\033[38;5;141m╚\033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╔╝\033[38;5;141m╚\033[38;5;225m██\033[38;5;225m██\033[38;5;225m██\033[38;5;141m╔╝\033[38;5;225m██\033[38;5;141m║  \033[38;5;225m██\033[38;5;141m╗\n"
-        "\033[38;5;141m╚═╝     \033[38;5;141m╚═╝  \033[38;5;141m╚═╝ \033[38;5;141m╚═════╝ \033[38;5;141m╚═╝  \033[38;5;141m╚═══╝\033[38;5;141m╚══════╝\033[38;5;141m╚═════╝  \033[38;5;141m╚═════╝  \033[38;5;141m╚═════╝ \033[38;5;141m╚═╝  \033[38;5;141m╚═╝\n";
-    std::cout << banner << std::endl;
+    std::cout << LIGHTPURPLE << "██████" << DARKPURPLE << "╗ " << LIGHTPURPLE << "██" << DARKPURPLE << "╗  " << LIGHTPURPLE << "██" << DARKPURPLE << "╗ " << LIGHTPURPLE << "██████" << DARKPURPLE << "╗ " << LIGHTPURPLE << "███" << DARKPURPLE << "╗   " << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "███████" << DARKPURPLE << "╗" << LIGHTPURPLE << "██████" << DARKPURPLE << "╗  " << LIGHTPURPLE << "██████" << DARKPURPLE << "╗  " << LIGHTPURPLE << "██████" << DARKPURPLE << "╗ " << LIGHTPURPLE << "██" << DARKPURPLE << "╗  " << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << std::endl;
+    std::cout << LIGHTPURPLE << "██" << DARKPURPLE << "╔══" << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "██" << DARKPURPLE << "║  " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "╔═══" << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "████" << DARKPURPLE << "╗  " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "╔════╝" << LIGHTPURPLE << "██" << DARKPURPLE << "╔══" << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "██" << DARKPURPLE << "╔═══" << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "██" << DARKPURPLE << "╔═══" << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "██" << DARKPURPLE << "║ " << LIGHTPURPLE << "██" << DARKPURPLE << "╔╝" << std::endl;
+    std::cout << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝" << LIGHTPURPLE << "███████" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "║   " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "╔" << LIGHTPURPLE << "██" << DARKPURPLE << "╗ " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "█████" << DARKPURPLE << "╗  " << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝" << LIGHTPURPLE << "██" << DARKPURPLE << "║   " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "║   " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "█████" << DARKPURPLE << "╔╝ " << std::endl;
+    std::cout << LIGHTPURPLE << "██" << DARKPURPLE << "╔═══╝ " << LIGHTPURPLE << "██" << DARKPURPLE << "╔══" << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "║   " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "║" << DARKPURPLE << "╚" << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "╔══╝  " << LIGHTPURPLE << "██" << DARKPURPLE << "╔══" << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << LIGHTPURPLE << "██" << DARKPURPLE << "║   " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "║   " << LIGHTPURPLE << "██" << DARKPURPLE << "║" << LIGHTPURPLE << "██" << DARKPURPLE << "╔═" << LIGHTPURPLE << "██" << DARKPURPLE << "╗ " << std:: endl;
+    std::cout << LIGHTPURPLE << "██" << DARKPURPLE << "║     " << LIGHTPURPLE << "██" << DARKPURPLE << "║  " << LIGHTPURPLE << "██" << DARKPURPLE << "║╚" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝" << LIGHTPURPLE << "██" << DARKPURPLE << "║ ╚" << LIGHTPURPLE << "████" << DARKPURPLE << "║" << LIGHTPURPLE << "███████" << DARKPURPLE << "╗" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝╚" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝╚" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝" << LIGHTPURPLE << "██" << DARKPURPLE << "║  " << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << std::endl;
+    std::cout << DARKPURPLE << "╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝" << RESET << std::endl;
+    std::cout << std::endl;
 }
 
 int main()
@@ -48,9 +47,7 @@ int main()
         {
             trim(option);
             if (option.empty())
-            {
                 std::cout << "Field can't be empty. Try again." << std::endl;
-            }
             else
             {
                 to_upper(option);

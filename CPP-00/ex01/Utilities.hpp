@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:50:58 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:35:52 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:01:14 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,20 @@
 
 # include "PhoneBook.hpp"
 # include "Contact.hpp"
-# define DARKBLUE "\033[38;5;141m" // Azul escuro
-# define LIGHTPURPLE "\033[38;5;225m" // Lilás claro
-# define RESET "\033[0m" // Reset de cor
+
+#define DARKPURPLE "\033[38;5;141m"
+#define LIGHTPURPLE "\033[38;5;225m"
+#define ROSE "\033[38;5;217m"
+#define ORANGE "\033[38;5;208m"
+#define YELLOW "\033[38;5;228m"
+#define GREEN "\033[38;5;148m"
+#define CYAN "\033[38;5;159m"
+#define BLUE "\033[38;5;153m"
+#define PURPLE "\033[38;5;177m"
+#define WHITE "\033[38;5;231m"
+#define RED "\033[38;5;124m"
+#define PINK "\033[38;5;198m"
+#define RESET "\033[0m"
 
 enum Field
 {
