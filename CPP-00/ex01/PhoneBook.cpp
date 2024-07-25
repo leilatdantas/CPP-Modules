@@ -6,11 +6,12 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:08:42 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:02:08 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:33:47 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Utilities.hpp"
 
 PhoneBook::PhoneBook()
 {

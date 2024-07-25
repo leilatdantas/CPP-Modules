@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:07:03 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:28:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:33:22 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
-# include "Utilities.hpp"
 
 # define MAX_CONTACTS 8
-
 class PhoneBook
 {
 private:

@@ -6,11 +6,12 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:17:34 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:20:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:35:39 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "Utilities.hpp"
 
 Contact::Contact()
 {
@@ -29,13 +30,6 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 void Contact::set_index(int index)
 {
 	_index = index;
-}
-
-std::string	treat_info(std::string str)
-{
-	if (str.length() >= 10)
-		str = str.substr(0, 9) + ".";
-	return str;
 }
 
 void Contact::display_contact(int index)

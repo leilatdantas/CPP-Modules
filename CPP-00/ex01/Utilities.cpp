@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:59:11 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:20:25 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:35:47 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,11 @@ std::string get_info(int field) {
 		}
     } while (ret.empty());
     return ret;
+}
+
+std::string	treat_info(std::string str)
+{
+	if (str.length() >= 10)
+		str = str.substr(0, 9) + ".";
+	return str;
 }

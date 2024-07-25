@@ -6,14 +6,14 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:17:28 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:27:41 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:35:00 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 # include <iostream>
-# include <cstring>
+# include <string>
 # include <iomanip>
 
 class Contact

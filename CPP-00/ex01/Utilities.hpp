@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:50:58 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:31:01 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:35:52 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void 		to_upper(std::string& str);
 bool		is_valid_number(std::string phonenbr);
 std::string get_info(int field);
 std::string get_prompt(int field);
+std::string	treat_info(std::string str);
 
 #endif
