@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:59:11 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 19:11:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:59:06 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,8 @@ std::string get_info(int field) {
 					std::cout << "Invalid number. Try again!" << std::endl << prompt;
 					std::getline(std::cin, ret);
 					if (std::cin.eof()) {
-						std::cin.clear(); // Limpa o estado de erro
-            			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Limpa o buffer de entrada
-						return "";
+						std::cout << std::endl << RED << "You interrupted the PhoneBook. Goodbye!" << std::endl;
+						exit (0);
 					}
 					trim(ret);
 				}

@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:17:34 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 18:35:39 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:54:45 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void Contact::display_contact(int index)
 
 void Contact::display_contact()
 {
-	std::cout << "First Name: " << _first_name << std::endl;
-	std::cout << "Last Name: " << _last_name << std::endl;
-	std::cout << "Nickname: " << _nickname << std::endl;
-	std::cout << "Phone Number: " << _phonenbr << std::endl;
-	std::cout << "Darkest Secret: " << _darkest_secret << std::endl;
+	std::cout << PURPLE << "First Name: " << RESET << _first_name << std::endl;
+	std::cout << PURPLE << "Last Name: " << RESET << _last_name << std::endl;
+	std::cout << PURPLE << "Nickname: " << RESET << _nickname << std::endl;
+	std::cout << PURPLE << "Phone Number: " << RESET << _phonenbr << std::endl;
+	std::cout << PURPLE << "Darkest Secret: " << RESET << _darkest_secret << std::endl;
 }
 
 Contact::~Contact()
