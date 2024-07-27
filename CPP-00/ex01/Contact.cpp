@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:17:34 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/26 14:54:45 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/27 12:37:25 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,22 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 	_darkest_secret = darkest_secret;
 }
 
-
-void Contact::set_index(int index)
+void Contact::display_info()
 {
-	_index = index;
-}
-
-void Contact::display_contact(int index)
-{
-	std::cout << std::setw(10) << index << "|";
-	std::cout << std::setw(10) << treat_info(_first_name) << "|";
-	std::cout << std::setw(10) << treat_info(_last_name) << "|";
-	std::cout << std::setw(10) << treat_info(_nickname) << std::endl;
+	std::cout << std::setw(10) << treat_info(_first_name) << GREEN << "|" RESET;
+	std::cout << std::setw(10) << treat_info(_last_name) << GREEN << "|" RESET;
+	std::cout << std::setw(10) << treat_info(_nickname) << GREEN << "|" << RESET << std::endl;
 }
 
 void Contact::display_contact()
 {
-	std::cout << PURPLE << "First Name: " << RESET << _first_name << std::endl;
-	std::cout << PURPLE << "Last Name: " << RESET << _last_name << std::endl;
-	std::cout << PURPLE << "Nickname: " << RESET << _nickname << std::endl;
-	std::cout << PURPLE << "Phone Number: " << RESET << _phonenbr << std::endl;
-	std::cout << PURPLE << "Darkest Secret: " << RESET << _darkest_secret << std::endl;
+	std::cout << std::endl;
+	std::cout << "• First Name: " << GREEN << _first_name << RESET << std::endl;
+	std::cout << "• Last Name: " << GREEN << _last_name << RESET << std::endl;
+	std::cout << "• Nickname: " << GREEN << _nickname << RESET << std::endl;
+	std::cout << "• Phone Number: " << GREEN << _phonenbr << RESET << std::endl;
+	std::cout << "• Darkest Secret: " << GREEN << _darkest_secret << RESET << std::endl;
+	std::cout << std::endl;
 }
 
 Contact::~Contact()

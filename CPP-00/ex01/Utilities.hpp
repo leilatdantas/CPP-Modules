@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:50:58 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/25 19:01:14 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/27 12:07:25 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 #define RED "\033[38;5;124m"
 #define PINK "\033[38;5;198m"
 #define RESET "\033[0m"
+#define BOLD "\e[1m"
 
 enum Field
 {
