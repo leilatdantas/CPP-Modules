@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:17:28 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/27 11:32:08 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/27 13:07:34 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ private:
 public:
 	Contact();
 	Contact(std::string first_name, std::string last_name, std::string nickname, std::string phonenbr, std::string darkest_secret);
-	void	display_info();
+	void	display_resume();
 	void	display_contact();
 	~Contact();
 };

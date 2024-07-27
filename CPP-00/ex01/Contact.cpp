@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:17:34 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/27 12:37:25 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/27 13:07:48 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 	_darkest_secret = darkest_secret;
 }
 
-void Contact::display_info()
+void Contact::display_resume()
 {
 	std::cout << std::setw(10) << treat_info(_first_name) << GREEN << "|" RESET;
 	std::cout << std::setw(10) << treat_info(_last_name) << GREEN << "|" RESET;

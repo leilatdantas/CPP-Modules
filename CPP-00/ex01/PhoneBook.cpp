@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:08:42 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/27 13:02:31 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/27 13:08:01 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void PhoneBook::display()
 	for (int i = 0; i < _nb_contacts; i++)
 	{
 		std::cout << BOLD << DARKPURPLE << std::setw(10) << i + 1 << RESET << GREEN << "|" << RESET;
-		_contacts[i].display_info();
+		_contacts[i].display_resume();
 	}
 	std::cout << std::endl;
 	
