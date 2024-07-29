@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:17:28 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/27 13:07:34 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:14:01 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iomanip>
 # include <cstdlib>
 # include <limits>
+# include <unistd.h>
 
 class Contact
 {

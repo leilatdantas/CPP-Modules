@@ -6,12 +6,41 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:11:35 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/27 12:59:08 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:27:20 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Utilities.hpp"
+#include <termios.h>
+#include <unistd.h>
+
+void set_terminal_mode() {
+    struct termios tattr;
+
+    // Obter os atributos do terminal
+    tcgetattr(STDIN_FILENO, &tattr);
+
+    // Definir o terminal para o modo não canônico e sem eco
+    tattr.c_lflag &= ~(ECHO);
+
+    // Definir os atributos do terminal
+    tcsetattr(STDIN_FILENO, TCSANOW, &tattr);
+}
+
+// Função para restaurar o terminal ao modo original
+void reset_terminal_mode() {
+    struct termios tattr;
+
+    // Obter os atributos do terminal
+    tcgetattr(STDIN_FILENO, &tattr);
+
+    // Restaurar o terminal para o modo canônico e com eco
+    tattr.c_lflag |= (ICANON | ECHO);
+
+    // Definir os atributos do terminal
+    tcsetattr(STDIN_FILENO, TCSANOW, &tattr);
+}
 
 void    display_options()
 {
@@ -32,16 +61,18 @@ void displayBanner() {
     std::cout << LIGHTPURPLE << "██" << DARKPURPLE << "║     " << LIGHTPURPLE << "██" << DARKPURPLE << "║  " << LIGHTPURPLE << "██" << DARKPURPLE << "║╚" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝" << LIGHTPURPLE << "██" << DARKPURPLE << "║ ╚" << LIGHTPURPLE << "████" << DARKPURPLE << "║" << LIGHTPURPLE << "███████" << DARKPURPLE << "╗" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝╚" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝╚" << LIGHTPURPLE << "██████" << DARKPURPLE << "╔╝" << LIGHTPURPLE << "██" << DARKPURPLE << "║  " << LIGHTPURPLE << "██" << DARKPURPLE << "╗" << std::endl;
     std::cout << DARKPURPLE << "╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝" << RESET << std::endl;
     std::cout << std::endl;
+    display_options();
 }
+
 
 int main()
 {
     PhoneBook pb;
     std::string option;
-    displayBanner();
+    // set_terminal_mode();
     while (1)
     {
-        display_options();
+        displayBanner();
 		std::getline(std::cin, option);
         if (!(std::cin.eof()))
         {
@@ -56,16 +87,17 @@ int main()
                 if ((option.length() == 1 && option[0] == '1') || option == "ADD")
                     pb.add_contact();
                 else if ((option.length() == 1 && option[0] == '2') || option == "SEARCH")
+                {
                     pb.search_contact();
+                    sleep(3);
+                }
                 else if ((option.length() == 1 && option[0] == '3') || option == "EXIT")
                 {
                     std::cout << CYAN << "Exiting PhoneBook..." << RESET << std::endl;
                     exit (0);
                 }
                 else
-                {
                     std::cout << std::endl << ORANGE << "⚠️  Invalid option. Try again!" << RESET << std::endl;
-                }
             }
         }
         else
