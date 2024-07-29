@@ -6,12 +6,14 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:17:29 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/29 14:47:25 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:49:00 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
+#include <iomanip>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -111,7 +113,19 @@ int		Account::checkAmount( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[timestamp] ";
+	std::time_t t = std::time(NULL);
+	std::tm* now = std::localtime(&t);
+
+	std::cout << "["
+			<< (now->tm_year + 1900)
+			<< std::setw(2) << std::setfill('0') << (now->tm_mon + 1)
+			<< std::setw(2) << std::setfill('0') << (now->tm_mday)
+			<< "_"
+			<< std::setw(2) << std::setfill('0') << (now->tm_hour)
+			<< std::setw(2) << std::setfill('0') << (now->tm_min)
+			<< std::setw(2) << std::setfill('0') << (now->tm_sec)
+			<< "] ";
+	// std::cout << "[timestamp] ";
 }
 
 Account::~Account( void )
@@ -120,4 +134,6 @@ Account::~Account( void )
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";amount:" << _amount;
 	std::cout << ";closed" << std::endl;
-} 
+}
+
+
