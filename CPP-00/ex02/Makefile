@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/30 11:20:27 by lebarbos          #+#    #+#              #
+#    Updated: 2024/07/30 11:20:30 by lebarbos         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = test
 
 CC = c++
 
-CFLAGS = -Werror -Wextra -Wall -std=c++98 -fsanitize=address
+CFLAGS = -Werror -Wextra -Wall -std=c++98
 
 OBJ_DIR = objs
 
@@ -17,11 +29,9 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 	
-$(OBJ_DIR)/%.o: %.cpp $(OBJ_DIR) $(HEADERS)
+$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@ 
-
-$(OBJ_DIR): 
-	mkdir -p $(OBJ_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)

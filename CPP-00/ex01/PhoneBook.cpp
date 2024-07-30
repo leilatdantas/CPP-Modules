@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:08:42 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/27 13:08:01 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/30 12:11:25 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void PhoneBook::add_contact()
 void PhoneBook::display()
 {
 	std::cout << std::endl;
-	std::cout << BOLD << DARKPURPLE << std::setw(10) << "Index" << RESET << GREEN << "|" << RESET;
+	std::cout << BOLD << PURPLE << std::setw(10) << "Index" << RESET << GREEN << "|" << RESET;
 	std::cout << BOLD << PURPLE << std::setw(10) << "First Name" << RESET << GREEN << "|" << RESET;
 	std::cout << BOLD << PURPLE << std::setw(10) << "Last Name" << RESET << GREEN << "|" << RESET;
 	std::cout << BOLD << PURPLE << std::setw(10) << "Nickname" << RESET << GREEN << "|" << RESET << std::endl;
 	for (int i = 0; i < _nb_contacts; i++)
 	{
-		std::cout << BOLD << DARKPURPLE << std::setw(10) << i + 1 << RESET << GREEN << "|" << RESET;
+		std::cout << CYAN << std::setw(10) << i + 1 << RESET << GREEN << "|" << RESET;
 		_contacts[i].display_resume();
 	}
 	std::cout << std::endl;
@@ -81,5 +81,5 @@ void PhoneBook::search_contact()
 		_contacts[i].display_contact();
 	}
 	else
-		std::cout << ORANGE << "\n⚠️  Invalid index. Next time choose a index between " << 1 << " and " << _nb_contacts << "." << RESET << std::endl;
+		std::cout << ORANGE << "\n⚠️  Invalid option. Next time choose a number between " << 1 << " and " << _nb_contacts << "." << RESET << std::endl;
 }
