@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:08:42 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/30 12:11:25 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:58:44 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void PhoneBook::search_contact()
 	std::getline(std::cin, index);
 	if (std::cin.eof())
 	{
-		std::cout << std::endl << RED << "You interrupted the PhoneBook. Goodbye! 👋🏻" << RESET << std::endl;
+		std::cout << std::endl << RED << "You interrupted the PhoneBook. Goodbye!" << RESET << std::endl;
 		exit (0);
 	}
 	else if (index.length() == 1 && index[0] >= '1' && index[0] < _nb_contacts + '1')

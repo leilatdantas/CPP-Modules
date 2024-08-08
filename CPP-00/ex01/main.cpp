@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:11:35 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/30 12:21:46 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:58:39 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int main()
         }
         else
         {
-            std::cout << std::endl << RED << "You interrupted the PhoneBook. Goodbye! 👋🏻" << RESET << std::endl;
+            std::cout << std::endl << RED << "You interrupted the PhoneBook. Goodbye!" << RESET << std::endl;
             break; 
         }
     }

@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:59:11 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/07/27 12:56:17 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:47:32 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ std::string get_info(int field)
 		if (std::cin.eof())
 		{
 			std::cout << std::endl
-					  << RED << "You interrupted the PhoneBook. Goodbye! 👋🏻" << RESET << std::endl;
+					  << RED << "You interrupted the PhoneBook. Goodbye!" << RESET << std::endl;
 			exit(0);
 		}
 		trim(ret);
@@ -92,7 +92,7 @@ std::string get_info(int field)
 					if (std::cin.eof())
 					{
 						std::cout << std::endl
-								  << RED << "You interrupted the PhoneBook. Goodbye! 👋🏻" << RESET << std::endl;
+								  << RED << "You interrupted the PhoneBook. Goodbye!" << RESET << std::endl;
 						exit(0);
 					}
 					trim(ret);
