@@ -30,7 +30,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(NAME)

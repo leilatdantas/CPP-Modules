@@ -17,7 +17,7 @@ void	replaceString(std::string filename, std::string string1, std::string string
 	std::string::size_type pos = 0;
 	std::string::size_type found = 0;
 
-	std::ifstream inputFile(filename);
+	std::ifstream inputFile(filename.c_str());
 	if (!inputFile.is_open())
 	{
 		std::cout << "Error opening the file: " << filename <<  std::endl;
@@ -41,7 +41,7 @@ void	replaceString(std::string filename, std::string string1, std::string string
 	
 	std::string newFilename = filename + ".replace";
 	std::ofstream outfile;
-	outfile.open(newFilename, std::ofstream::trunc);
+	outfile.open(newFilename.c_str(), std::ofstream::trunc);
 	if (!outfile.is_open())
 		std::cout << "Error opening outfile: " << newFilename << std::endl;
 	outfile << result; 

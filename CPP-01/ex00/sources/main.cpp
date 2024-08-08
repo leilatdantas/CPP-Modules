@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:45:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/02 17:57:52 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:43:38 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void testingNewZombie(Zombie *zombie)
 {
-	randomChump("Vou embora cedo");
+	randomChump("CaFoo");
 	zombie->announce();
 }
 
