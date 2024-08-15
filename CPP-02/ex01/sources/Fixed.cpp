@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:55:27 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/11 15:42:26 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:35:30 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,19 @@ void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->fixedPoint = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+	
+}
+
+int Fixed::toInt(void) const
+{
+	
+}
+
+Fixed&	Fixed::operator<<(std::ostream out, Fixed& other)
+{
+	out << roundf(other.toFloat());
 }

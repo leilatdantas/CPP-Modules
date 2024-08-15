@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:55:09 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/11 16:19:52 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:37:21 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-#include <math>
+#include <cmath>
 
 class Fixed
 {
@@ -26,6 +26,9 @@ public:
 	~Fixed();
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
+	float toFloat(void) const;
+	int toInt(void) const;
+	Fixed	operator<<(Fixed& other);
 private:
 	int fixedPoint;
 	static const int bits = 8;
