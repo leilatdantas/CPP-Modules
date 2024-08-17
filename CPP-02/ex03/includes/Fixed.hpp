@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:55:09 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/15 20:51:10 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/17 15:52:17 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,24 @@ public:
 	void setRawBits(int const raw);
 	float toFloat(void) const;
 	int toInt(void) const;
+	bool	operator>(const Fixed& other);
+	bool	operator<(const Fixed& other);
+	bool	operator>=(const Fixed& other);
+	bool	operator<=(const Fixed& other);
+	bool	operator==(const Fixed& other);
+	bool	operator!=(const Fixed& other);
+	Fixed	operator+(const Fixed& other);
+	Fixed	operator-(const Fixed& other);
+	Fixed	operator*(const Fixed& other);
+	Fixed	operator/(const Fixed& other) const;
+	Fixed	operator++(int);
+	Fixed	operator++();
+	Fixed	operator--(int);
+	Fixed	operator--();
+	static const Fixed&	min(const Fixed& one, const Fixed& other);
+	static Fixed&	min(Fixed& one, Fixed& other);
+	static const Fixed&	max(const Fixed& one, const Fixed& other);
+	static Fixed&	max(Fixed& one, Fixed& other);
 private:
 	int fixedPoint;
 	static const int bits = 8;
