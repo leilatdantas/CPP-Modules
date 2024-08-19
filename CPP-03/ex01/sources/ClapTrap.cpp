@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/18 13:57:54 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/18 14:10:13 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(std::string name)
 	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "-Claptrap- " << PINK << name << RESET << " constructor has been called" << std::endl;
+	std::cout << PINK << "(CLAPTRAP) " << RESET << name << " constructor has been called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -46,7 +46,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "-ClapTrap- " << _name << " has been destructed." << std::endl;
+	std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " has been destructed." << std::endl;
 }
 void ClapTrap::attack(const std::string& target)
 {
@@ -57,7 +57,7 @@ void ClapTrap::attack(const std::string& target)
 	else
 	{
 		_energyPoints--;
-		std::cout << /*"ClapTrap " <<*/ _name << " attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl;
+		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 }
 

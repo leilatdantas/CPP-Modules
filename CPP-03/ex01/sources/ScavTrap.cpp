@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:14:37 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/18 14:01:07 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/18 14:07:28 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ScavTrap::ScavTrap()
 	: ClapTrap()
 {
-	std::cout << "-ScavTrap- Default has been created." << std::endl;
+	std::cout << GREEN << "(SCAVTRAP) " << RESET << "Default has been created." << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap(std::string name)
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << "-ScavTrap- " << _name << " created." << std::endl; 
+	std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " created." << std::endl; 
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other)
@@ -43,18 +43,18 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "-ScavTrap- " << _name << " destroyed." << std::endl;
+	std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " destroyed." << std::endl;
 }
 
 void	ScavTrap::attack(std::string name)
 {
 	if (_hitPoints == 0)
-		std::cout << "-SCAVTRAP- " << _name << " is dead. It can't do anything to " << name << std::endl;
+		std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " is dead. It can't do anything to " << name << std::endl;
 	else if (_energyPoints == 0)
-		std::cout << "-SCAVTRAP-" << _name << "has no energy points left to attack." << std::endl;
+		std::cout << "(SCAVTRAP)" << _name << "has no energy points left to attack." << std::endl;
 	else
 	{
-		std::cout << "-ScavTrap- " << _name << " just attacked " << name << "and caused a damage of " << _attackDamage << "points of damage!" << std::endl; 
+		std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " just attacked " << name << " and caused a damage of " << _attackDamage << " points of damage!" << std::endl; 
 		_energyPoints--;
 	}
 
@@ -62,6 +62,6 @@ void	ScavTrap::attack(std::string name)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "-SCAVTRAP- " << _name << " is now in Gate keeper mode." << std::endl; 
+	std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " is now in Gate keeper mode." << std::endl; 
 }
 
