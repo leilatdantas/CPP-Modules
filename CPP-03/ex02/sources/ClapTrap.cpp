@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/19 12:35:05 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/19 13:17:14 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ ClapTrap::~ClapTrap()
 void	ClapTrap::attack(const std::string target)
 {
 	if (_hitPoints == 0)
-		std::cout << /*"ClapTrap " <<*/ _name << "is dead. It can't do anything!" << std::endl;
+		std::cout << "(CLAPTRAP) " << _name << "is dead. It can't do anything!" << std::endl;
 	else if (_energyPoints == 0)
-		std::cout << /*"ClapTrap " <<*/ _name << "has no energy points to atack " << target << std::endl;
+		std::cout << "(CLAPTRAP) " << _name << "has no energy points to atack " << target << std::endl;
 	else
 	{
 		_energyPoints--;
