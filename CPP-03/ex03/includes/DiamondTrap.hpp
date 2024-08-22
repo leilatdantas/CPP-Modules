@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:52 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 12:16:11 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:19:29 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ public:
 	void	attack(const std::string target);
 	void	whoAmI();
 	void	status();
-	int		getHitPoints();
-	int		getEnergyPoints();
-	int		getAttackDamage();
 private:
 	std::string _name;
 	int			_hitPoints;

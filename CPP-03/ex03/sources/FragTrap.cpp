@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:17:07 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 12:17:34 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:49:19 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ FragTrap::FragTrap()
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << BLUE << "(FRAGTRAP) " << RESET << " Default created." << std::endl; 
+	std::cout << BLUE << "(FRAGTRAP) " << RESET << "constructor has been called for " << BLUE << "Default." << RESET << std::endl;
+
 
 }
 
@@ -30,7 +31,7 @@ FragTrap::FragTrap(std::string name)
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << BLUE << "(FRAGTRAP) " << RESET << _name << " created." << std::endl; 
+	std::cout << BLUE << "(FRAGTRAP) " << RESET << "constructor has been called for " << BLUE << _name << RESET << std::endl;
 
 }
 
@@ -53,7 +54,8 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << BLUE << "(FRAGTRAP) " << RESET << _name << " destroyed." << std::endl; 
+	std::cout << BLUE << "(FRAGTRAP) " << RESET << "destructor has been called for " << BLUE << _name << RESET << std::endl;
+
 }
 
 void	FragTrap::highFivesGuys(void)
@@ -83,17 +85,3 @@ void	FragTrap::status()
 	std::cout << "damage points: " << this->_attackDamage << std::endl;
 }
 
-int		FragTrap::getHitPoints()
-{
-	return _hitPoints;
-}
-
-int		FragTrap::getEnergyPoints()
-{
-	return _energyPoints;
-}
-
-int		FragTrap::getAttackDamage()
-{
-	return _attackDamage;
-}

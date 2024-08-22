@@ -6,19 +6,20 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:15 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 11:53:49 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:44:05 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap()
-	: ClapTrap("Default_clap_name"), ScavTrap(), FragTrap()
+	: ClapTrap(), ScavTrap(), FragTrap()
 {
 	_name = "Default";
 	_hitPoints = FragTrap::_hitPoints;
 	_energyPoints = ScavTrap::_energyPoints;
 	_attackDamage = FragTrap::_attackDamage;
+	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "constructor has been called for " << PURPLE << "Default." << RESET << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
@@ -29,6 +30,8 @@ DiamondTrap::DiamondTrap(std::string name)
 	_hitPoints = FragTrap::_hitPoints;
 	_energyPoints = ScavTrap::_energyPoints;
 	_attackDamage = FragTrap::_attackDamage;
+	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "constructor has been called for " << PURPLE << _name << RESET << std::endl;
+
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
@@ -52,6 +55,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 
 DiamondTrap::~DiamondTrap()
 {
+	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "destructor has been called for " << PURPLE << _name << RESET << std::endl;
 }
 
 void	DiamondTrap::attack(const std::string target)
@@ -73,19 +77,5 @@ void	DiamondTrap::status()
 	std::cout << "damage points: " << this->_attackDamage << std::endl;
 }
 
-int		DiamondTrap::getHitPoints()
-{
-	return _hitPoints;
-}
-
-int		DiamondTrap::getEnergyPoints()
-{
-	return _energyPoints;
-}
-
-int		DiamondTrap::getAttackDamage()
-{
-	return _attackDamage;
-}
 
 

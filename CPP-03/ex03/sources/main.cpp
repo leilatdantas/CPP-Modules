@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:57:26 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 12:15:02 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:45:06 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int main()
 {
     std::cout << "Creating DiamondTrap object...\n";
     DiamondTrap robot("Lika");
-    FragTrap frag("Frag");
-    ScavTrap   svav("Scav");
+    // FragTrap frag("Frag");
+    // ScavTrap   svav("Scav");
 
     // robot.attack("LOSER");        // Testa o método attack() da ScavTrap
     // robot.highFivesGuys();
@@ -26,10 +26,9 @@ int main()
     // std::cout << robot.getName() << std::endl;
     
     robot.status();
-    robot.attack("opa");
+    robot.attack("LALALA");
     robot.whoAmI();
-    frag.status();
-    svav.status();
+
     std::cout << "End of program.\n";
     return 0;
 }

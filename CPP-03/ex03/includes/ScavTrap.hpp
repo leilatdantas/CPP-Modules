@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:13:13 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 12:16:30 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:19:59 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ public:
 	virtual void	status();
 	virtual void	attack(const std::string target); // override attack from base class 
 	virtual void	guardGate();
-	virtual int		getHitPoints();
-	virtual int		getEnergyPoints();
-	virtual int		getAttackDamage();
 protected:
 	std::string	_name;
 	int			_hitPoints;

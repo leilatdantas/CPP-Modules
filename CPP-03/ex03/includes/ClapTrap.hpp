@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:57 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 11:47:30 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:20:33 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	virtual void	status();
-	virtual int		getHitPoints();
-	virtual int		getEnergyPoints();
-	virtual int		getAttackDamage();
-
 protected:
 	std::string _name;
 	int			_hitPoints;

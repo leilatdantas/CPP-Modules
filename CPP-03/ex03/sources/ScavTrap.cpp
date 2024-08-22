@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:14:37 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 12:18:34 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:48:56 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ ScavTrap::ScavTrap()
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << GREEN << "(SCAVTRAP) " << RESET << "Default has been created." << std::endl;
+	std::cout << GREEN << "(SCAVTRAP) " << RESET << "constructor has been called for " << GREEN << "default." << RESET << std::endl;
+
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -29,7 +30,8 @@ ScavTrap::ScavTrap(std::string name)
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " created." << std::endl; 
+	std::cout << GREEN << "(SCAVTRAP) " << RESET << "constructor has been called for " << GREEN << _name << RESET << std::endl;
+
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other)
@@ -50,7 +52,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " destroyed." << std::endl;
+	std::cout << GREEN << "(SCAVTRAP) " << RESET << "destructor has been called for " << GREEN << _name << RESET << std::endl;
 }
 
 void	ScavTrap::attack(const std::string target)
@@ -79,19 +81,4 @@ void	ScavTrap::status()
 	std::cout << "hit points: " << this->_hitPoints << std::endl;
 	std::cout << "energy points: " << this->_energyPoints << std::endl;
 	std::cout << "damage points: " << this->_attackDamage << std::endl;
-}
-
-int		ScavTrap::getHitPoints()
-{
-	return _hitPoints;
-}
-
-int		ScavTrap::getEnergyPoints()
-{
-	return _energyPoints;
-}
-
-int		ScavTrap::getAttackDamage()
-{
-	return _attackDamage;
 }

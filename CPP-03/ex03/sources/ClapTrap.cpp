@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 11:54:37 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:50:15 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 ClapTrap::ClapTrap()
 	: _name("Default_clap_name"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Default constructor has been called;" << std::endl;
+	std::cout << PINK << "(CLAPTRAP) " << RESET << "constructor has been called for " << PINK << "default." << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 	: _name(name + "_clap_name"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " constructor has been called" << std::endl;
+	std::cout << PINK << "(CLAPTRAP) " << RESET << "constructor has been called for " << PINK << _name << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -46,7 +46,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " has been destructed." << std::endl;
+	std::cout << PINK << "(CLAPTRAP) " << RESET << "destructor has been called for " << PINK << _name << RESET << std::endl;
+
 }
 void	ClapTrap::attack(const std::string target)
 {
@@ -95,19 +96,4 @@ void	ClapTrap::status()
 	std::cout << "hit points: " << this->_hitPoints << std::endl;
 	std::cout << "energy points: " << this->_energyPoints << std::endl;
 	std::cout << "damage points: " << this->_attackDamage << std::endl;
-}
-
-int		ClapTrap::getHitPoints()
-{
-	return _hitPoints;
-}
-
-int		ClapTrap::getEnergyPoints()
-{
-	return _energyPoints;
-}
-
-int		ClapTrap::getAttackDamage()
-{
-	return _attackDamage;
 }
