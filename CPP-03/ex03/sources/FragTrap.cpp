@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:17:07 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 18:49:19 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/23 13:46:47 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@ void	FragTrap::attack(const std::string target)
 }
 
 
-void	FragTrap::status()
-{
-	std::cout << "name: " << this->_name << std::endl;
-	std::cout << "hit points: " << this->_hitPoints << std::endl;
-	std::cout << "energy points: " << this->_energyPoints << std::endl;
-	std::cout << "damage points: " << this->_attackDamage << std::endl;
-}
+// void	FragTrap::status()
+// {
+// 	std::cout << "name: " << this->_name << std::endl;
+// 	std::cout << "hit points: " << this->_hitPoints << std::endl;
+// 	std::cout << "energy points: " << this->_energyPoints << std::endl;
+// 	std::cout << "damage points: " << this->_attackDamage << std::endl;
+// }
 

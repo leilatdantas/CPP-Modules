@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:14:37 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 18:48:56 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/23 13:46:40 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ void	ScavTrap::guardGate()
 }
 
 
-void	ScavTrap::status()
-{
-	std::cout << "name: " << this->_name << std::endl;
-	std::cout << "hit points: " << this->_hitPoints << std::endl;
-	std::cout << "energy points: " << this->_energyPoints << std::endl;
-	std::cout << "damage points: " << this->_attackDamage << std::endl;
-}
+// void	ScavTrap::status()
+// {
+// 	std::cout << "name: " << this->_name << std::endl;
+// 	std::cout << "hit points: " << this->_hitPoints << std::endl;
+// 	std::cout << "energy points: " << this->_energyPoints << std::endl;
+// 	std::cout << "damage points: " << this->_attackDamage << std::endl;
+// }

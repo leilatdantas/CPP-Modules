@@ -6,20 +6,20 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 18:50:15 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:01:47 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-	: _name("Default_clap_name"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << PINK << "(CLAPTRAP) " << RESET << "constructor has been called for " << PINK << "default." << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
-	: _name(name + "_clap_name"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << PINK << "(CLAPTRAP) " << RESET << "constructor has been called for " << PINK << _name << RESET << std::endl;
 }
@@ -67,7 +67,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (_hitPoints > 0)
 	{		
 		std::cout << /*"ClapTrap " <<*/ _name << " takes " << amount << " points of damage!" << std::endl;
-		_hitPoints=-amount;
+		_hitPoints= _hitPoints - amount;
 	}
 	else
 	{
@@ -82,7 +82,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (_energyPoints > 0)
 	{
 		std::cout << /*"ClapTrap " <<*/ _name << " is repaired for " << amount << " points!" << std::endl;
-		_hitPoints=+amount;
+		_hitPoints= _hitPoints + amount;
 		_energyPoints--;
 	}
 	else
@@ -90,10 +90,26 @@ void ClapTrap::beRepaired(unsigned int amount)
 }
 
 
+int				ClapTrap::getHitPoints(void)
+{
+	return _hitPoints;
+}
+
+int				ClapTrap::getEnergyPoints(void)
+{
+	return _energyPoints;
+}
+
+int				ClapTrap::getAttackDamage(void)
+{
+	return _attackDamage;
+}
+
+
 void	ClapTrap::status()
 {
-	std::cout << "name: " << this->_name << std::endl;
-	std::cout << "hit points: " << this->_hitPoints << std::endl;
-	std::cout << "energy points: " << this->_energyPoints << std::endl;
-	std::cout << "damage points: " << this->_attackDamage << std::endl;
+	std::cout << "name: " << _name << std::endl;
+	std::cout << "hit points: " << _hitPoints << std::endl;
+	std::cout << "energy points: " << _energyPoints << std::endl;
+	std::cout << "damage points: " << _attackDamage << std::endl;
 }

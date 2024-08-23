@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:52 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 18:19:29 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/23 13:48:32 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,9 @@ public:
 	~DiamondTrap();
 	void	attack(const std::string target);
 	void	whoAmI();
-	void	status();
+	// void	status();
 private:
 	std::string _name;
-	int			_hitPoints;
-	int			_energyPoints;
-	int			_attackDamage;
 };
 
 #endif

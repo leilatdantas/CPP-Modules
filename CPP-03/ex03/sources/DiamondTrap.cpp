@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:15 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/22 18:44:05 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/23 13:53:17 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap(std::string name)
 	: ClapTrap(name), ScavTrap(name), FragTrap(name)
 {
-	_name = name;
-	// ClapTrap::_name = name + "_clap_name";
-	_hitPoints = FragTrap::_hitPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDamage = FragTrap::_attackDamage;
+	this->_name = name;
+	ClapTrap::_name = name + "_clap_name";
+	ScavTrap scav("scav_aux");
+	FragTrap frag("frag_aux");
+	_hitPoints = frag.getHitPoints();
+	_energyPoints = scav.getEnergyPoints();
+	_attackDamage = frag.getAttackDamage();
 	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "constructor has been called for " << PURPLE << _name << RESET << std::endl;
 
 }
@@ -69,13 +71,13 @@ void	DiamondTrap::whoAmI()
 }
 
 
-void	DiamondTrap::status()
-{
-	std::cout << "name: " << DiamondTrap::_name << std::endl;
-	std::cout << "hit points: " << this->_hitPoints << std::endl;
-	std::cout << "energy points: " << this->_energyPoints << std::endl;
-	std::cout << "damage points: " << this->_attackDamage << std::endl;
-}
+// void	DiamondTrap::status()
+// {
+// 	std::cout << "name: " << DiamondTrap::_name << std::endl;
+// 	std::cout << "hit points: " << this->_hitPoints << std::endl;
+// 	std::cout << "energy points: " << this->_energyPoints << std::endl;
+// 	std::cout << "damage points: " << this->_attackDamage << std::endl;
+// }
 
 
 
