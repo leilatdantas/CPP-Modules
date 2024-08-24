@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 12:54:57 by lebarbos          #+#    #+#              #
-#    Updated: 2024/08/19 12:59:14 by lebarbos         ###   ########.fr        #
+#    Updated: 2024/08/24 18:30:20 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ SRC_DIR = sources
 OBJ_DIR = objs
 INCLUDE_DIR = includes
 
-SOURCES = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp
+SOURCES = main.cpp FragTrap.cpp ClapTrap.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJECTS))
-HEADERS = ClapTrap.hpp FragTrap.hpp ScavTrap.hpp
+HEADERS = ClapTrap.hpp FragTrap.hpp 
 HEADERS_FILES = $(addprefix $(INCLUDE_DIR)/, $(HEADERS))
 
 all: $(NAME)

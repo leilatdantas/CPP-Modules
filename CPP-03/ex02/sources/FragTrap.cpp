@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:17:07 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/19 13:18:25 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 18:33:32 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,24 @@ FragTrap::FragTrap()
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << BLUE << "(FRAGTRAP) " << RESET << " Default created." << std::endl; 
-
+	std::cout << BLUE << "(FRAGTRAP) " << RESET << "constructor has been called for " << BLUE << "default." << RESET << std::endl;
 }
 
 FragTrap::FragTrap(std::string name)
 	: ClapTrap(name)
 {
+	_name = name;
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << BLUE << "(FRAGTRAP) " << RESET << _name << " created." << std::endl; 
+	std::cout << BLUE << "(FRAGTRAP) " << RESET << "constructor has been called for " << BLUE << _name << RESET << std::endl;
 
 }
 
 FragTrap::FragTrap(const FragTrap& other)
 	: ClapTrap(other)
 {
+	_name = other._name;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
@@ -42,13 +43,16 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 	if (this != &other)
 	{
 		this->ClapTrap::operator=(other);
+		_name = other._name;
+
 	}
 	return *this;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << BLUE << "(FRAGTRAP) " << RESET << _name << " destroyed." << std::endl; 
+	std::cout << BLUE << "(FRAGTRAP) " << RESET << "destructor has been called for " << BLUE << _name << RESET << std::endl;
+
 }
 
 void	FragTrap::highFivesGuys(void)
@@ -65,7 +69,8 @@ void	FragTrap::attack(const std::string target)
 	else
 	{
 		_energyPoints--;
-		std::cout << BLUE << "(FRAGTRAP) " << RESET << _name <<  " just attacked really bad " << target << " causing a demage of " << _attackDamage << std::endl;
+		std::cout << BLUE << "(FRAGTRAP) " << RESET << _name <<  " just attacked really bad " << target << " causing a demage of " << _attackDamage << " points!" << std::endl;
 	}
 }
+
 

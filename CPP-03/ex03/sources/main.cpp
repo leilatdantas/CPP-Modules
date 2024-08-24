@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:57:26 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/23 14:04:31 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 19:00:05 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int main() 
 {
-    std::cout << "Creating DiamondTrap object...\n";
-    DiamondTrap robot("Lika");
-    FragTrap frag("Frag");
-    ScavTrap   scav("Scav");
-    scav.status();
-    frag.status();
-    robot.status();
-    robot.attack("LALALA");
-    robot.status();
-    robot.beRepaired(10);
-    robot.status();
-    robot.takeDamage(20);
-    robot.status();
-    robot.guardGate();
-    robot.whoAmI();
+    // DiamondTrap robot("Lika");
+    // FragTrap frag("Frag");
+    // ScavTrap   scav("Scav");
+    // scav.status();
+    // frag.status();
+    lika->status();
+    lika->attack("LALALA");
+    lika->status();
+    lika->beRepaired(10);
+    lika->status();
+    lika->takeDamage(20);
+    lika->status();
+    lika->guardGate();
+    lika->whoAmI();
     std::cout << "End of program.\n";
+    delete lika;
     return 0;
 }

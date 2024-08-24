@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 12:54:57 by lebarbos          #+#    #+#              #
-#    Updated: 2024/08/22 11:57:23 by lebarbos         ###   ########.fr        #
+#    Updated: 2024/08/24 18:24:09 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = diamondtrap
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98 -Wshadow
+FLAGS = -Werror -Wextra -Wall -std=c++98
 
 # Diretórios
 SRC_DIR = sources

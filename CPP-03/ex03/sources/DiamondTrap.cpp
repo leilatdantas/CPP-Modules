@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:15 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/23 13:53:17 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 18:24:23 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 DiamondTrap::DiamondTrap()
 	: ClapTrap(), ScavTrap(), FragTrap()
 {
-	_name = "Default";
-	_hitPoints = FragTrap::_hitPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDamage = FragTrap::_attackDamage;
 	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "constructor has been called for " << PURPLE << "Default." << RESET << std::endl;
+	_name = "Default";
 }
 
 DiamondTrap::DiamondTrap(std::string name)
@@ -67,17 +64,12 @@ void	DiamondTrap::attack(const std::string target)
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "DIAMOND NAME: " << _name << " CLAP NAME: " << ClapTrap::_name << std::endl; 
+	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "I am " << PURPLE << _name << RESET << " and my ClapTrap name is: " << PINK << ClapTrap::getName() << RESET << std::endl;
 }
 
-
-// void	DiamondTrap::status()
-// {
-// 	std::cout << "name: " << DiamondTrap::_name << std::endl;
-// 	std::cout << "hit points: " << this->_hitPoints << std::endl;
-// 	std::cout << "energy points: " << this->_energyPoints << std::endl;
-// 	std::cout << "damage points: " << this->_attackDamage << std::endl;
-// }
-
+std::string		DiamondTrap::getName()
+{
+	return _name;
+}
 
 

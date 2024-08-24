@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:17:14 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/23 13:46:26 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 18:55:39 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,9 @@ public:
 	FragTrap(std::string name);
 	FragTrap(const FragTrap& other);
 	FragTrap& operator=(const FragTrap& other);
-	~FragTrap();
-	// virtual void	status();
+	virtual ~FragTrap();
 	void			attack(const std::string target);
 	void			highFivesGuys(void);
-// protected:
-	// std::string	_name;
-	// int			_hitPoints;
-	// int			_energyPoints;
-	// int			_attackDamage;
 };
 
 #endif

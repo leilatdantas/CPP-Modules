@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:52 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/23 13:48:32 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 18:44:57 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class DiamondTrap : virtual public ClapTrap, public ScavTrap, public FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 public:
 	DiamondTrap();
@@ -26,7 +26,8 @@ public:
 	~DiamondTrap();
 	void	attack(const std::string target);
 	void	whoAmI();
-	// void	status();
+	std::string		getName();
+
 private:
 	std::string _name;
 };

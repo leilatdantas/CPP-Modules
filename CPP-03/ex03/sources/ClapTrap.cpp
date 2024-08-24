@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/23 14:01:47 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 18:17:02 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,14 @@ int				ClapTrap::getAttackDamage(void)
 	return _attackDamage;
 }
 
+std::string		ClapTrap::getName()
+{
+	return _name;
+}
 
 void	ClapTrap::status()
 {
-	std::cout << "name: " << _name << std::endl;
+	std::cout << "name: " << getName() << std::endl;
 	std::cout << "hit points: " << _hitPoints << std::endl;
 	std::cout << "energy points: " << _energyPoints << std::endl;
 	std::cout << "damage points: " << _attackDamage << std::endl;

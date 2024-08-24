@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:14:37 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/23 13:46:40 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 18:26:09 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ ScavTrap::ScavTrap()
 	_energyPoints = 50;
 	_attackDamage = 20;
 	std::cout << GREEN << "(SCAVTRAP) " << RESET << "constructor has been called for " << GREEN << "default." << RESET << std::endl;
-
 }
 
 ScavTrap::ScavTrap(std::string name)
