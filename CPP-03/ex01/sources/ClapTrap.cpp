@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/24 18:37:25 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:09:53 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,13 @@ ClapTrap::~ClapTrap()
 	std::cout << PINK << "(CLAPTRAP) " << RESET << "destructor has been called for " << PINK << _name << RESET << std::endl;
 
 }
+
 void	ClapTrap::attack(const std::string target)
 {
 	if (_hitPoints == 0)
-		std::cout << "(CLAPTRAP) " << _name << "is dead. It can't do anything!" << std::endl;
+		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " is dead. It can't attack "<< target << std::endl;
 	else if (_energyPoints == 0)
-		std::cout << "(CLAPTRAP) " << _name << "has no energy points to atack " << target << std::endl;
+		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " has no energy points to atack " << target << std::endl;
 	else
 	{
 		_energyPoints--;
@@ -67,24 +68,24 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (_hitPoints > 0)
 	{		
 		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " takes " << amount << " points of damage!" << std::endl;
-		_hitPoints= _hitPoints - amount;
+		_hitPoints = _hitPoints - amount;
+		if (_hitPoints < 0)
+			_hitPoints = 0;
 	}
 	else
-	{
 		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " has no hit points left!" << std::endl;
-	}
-	if (_hitPoints < 0)
-		_hitPoints = 0;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energyPoints > 0)
+	if (_energyPoints > 0 && _hitPoints > 0)
 	{
 		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " is repaired for " << amount << " points!" << std::endl;
 		_hitPoints= _hitPoints + amount;
 		_energyPoints--;
 	}
+	else if (_hitPoints <= 0)
+		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " is dead and is not able to repair itself!" << std::endl;
 	else
 		std::cout << PINK << "(CLAPTRAP) " << RESET << _name << " has no energy points to be able to repair itself!" << std::endl;
 }
@@ -110,10 +111,25 @@ std::string		ClapTrap::getName()
 	return _name;
 }
 
+void ClapTrap::setHitPoints(int value)
+{
+	_hitPoints = value;
+}
+
+void ClapTrap::setEnergyPoints(int value)
+{
+	_energyPoints = value;
+}
+
+void ClapTrap::setAttackDamage(int value)
+{
+	_attackDamage = value;
+}
+
 void	ClapTrap::status()
 {
-	std::cout << "name: " << getName() << std::endl;
-	std::cout << "hit points: " << _hitPoints << std::endl;
-	std::cout << "energy points: " << _energyPoints << std::endl;
-	std::cout << "damage points: " << _attackDamage << std::endl;
+	std::cout << ORANGE << "name: " << RESET << getName() << std::endl;
+	std::cout << ORANGE << "hit points: " << RESET << getHitPoints() << std::endl;
+	std::cout << ORANGE << "energy points: " << RESET << getEnergyPoints() << std::endl;
+	std::cout << ORANGE << "damage points: " << RESET << getAttackDamage() << std::endl;
 }

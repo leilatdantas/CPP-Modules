@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:14:37 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/24 18:26:09 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:15:40 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ ScavTrap::~ScavTrap()
 void	ScavTrap::attack(const std::string target)
 {
 	if (_hitPoints == 0)
-		std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " is dead. It can't do anything to " << target << std::endl;
+		std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " is dead. It can't do anything to " << target << "!" << std::endl;
 	else if (_energyPoints == 0)
 		std::cout << "(SCAVTRAP)" << _name << "has no energy points left to attack." << std::endl;
 	else
 	{
-		std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " just attacked " << target << " and caused a damage of " << _attackDamage << " points of damage!" << std::endl; 
 		_energyPoints--;
+		std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " just attacked " << target << " and caused a damage of " << _attackDamage << " points!" << std::endl; 
 	}
 
 }
@@ -72,12 +72,3 @@ void	ScavTrap::guardGate()
 {
 	std::cout << GREEN << "(SCAVTRAP) " << RESET << _name << " is now in Gate keeper mode." << std::endl; 
 }
-
-
-// void	ScavTrap::status()
-// {
-// 	std::cout << "name: " << this->_name << std::endl;
-// 	std::cout << "hit points: " << this->_hitPoints << std::endl;
-// 	std::cout << "energy points: " << this->_energyPoints << std::endl;
-// 	std::cout << "damage points: " << this->_attackDamage << std::endl;
-// }

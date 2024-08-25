@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/25 13:00:38 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:09:53 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,25 @@ std::string		ClapTrap::getName()
 	return _name;
 }
 
+void ClapTrap::setHitPoints(int value)
+{
+	_hitPoints = value;
+}
+
+void ClapTrap::setEnergyPoints(int value)
+{
+	_energyPoints = value;
+}
+
+void ClapTrap::setAttackDamage(int value)
+{
+	_attackDamage = value;
+}
+
 void	ClapTrap::status()
 {
-	std::cout << "name: " << getName() << std::endl;
-	std::cout << "hit points: " << _hitPoints << std::endl;
-	std::cout << "energy points: " << _energyPoints << std::endl;
-	std::cout << "damage points: " << _attackDamage << std::endl;
+	std::cout << ORANGE << "name: " << RESET << getName() << std::endl;
+	std::cout << ORANGE << "hit points: " << RESET << getHitPoints() << std::endl;
+	std::cout << ORANGE << "energy points: " << RESET << getEnergyPoints() << std::endl;
+	std::cout << ORANGE << "damage points: " << RESET << getAttackDamage() << std::endl;
 }

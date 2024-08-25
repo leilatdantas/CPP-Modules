@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 18:16:02 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/25 12:44:35 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:51:46 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 
 int main() {
     ClapTrap claptrap("CT-01");
-
-    claptrap.attack("Target");  // Ataque ao alvo
+    claptrap.attack("Target");  // Attack the target
     claptrap.status();
-    claptrap.takeDamage(100);  // Receber dano
-    claptrap.beRepaired(5);  // Reparo
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.takeDamage(100);  // Receber dano
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.attack("target");  // Outro ataque ao alvo
-    claptrap.attack("target");  // Outro ataque ao alvo
+    claptrap.takeDamage(2);  // Take damage
+    claptrap.beRepaired(5);  // Repair
+    claptrap.attack("Target");  // Another attack on the target
+    claptrap.attack("Target");  // Another attack on the target
+    claptrap.attack("Target");  // Another attack on the target
+    claptrap.attack("Target");  // Another attack on the target
+    claptrap.attack("Target");  // Another attack on the target
     claptrap.status();
 
     return 0;

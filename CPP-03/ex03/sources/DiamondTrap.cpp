@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:15 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/24 18:24:23 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:32:23 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,13 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::attack(const std::string target)
 {
-	FragTrap::attack(target);
+	std::cout << PURPLE << "(DIAMONDTRAP ATTACK) ";
+	ScavTrap::attack(target);
 }
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "I am " << PURPLE << _name << RESET << " and my ClapTrap name is: " << PINK << ClapTrap::getName() << RESET << std::endl;
+	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "I am " << PURPLE << _name << RESET << " and my ClapTrap name is " << PINK << ClapTrap::getName() << RESET << std::endl;
 }
 
 std::string		DiamondTrap::getName()

@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:17:07 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/24 18:29:35 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:19:57 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	FragTrap::attack(const std::string target)
 	else
 	{
 		_energyPoints--;
-		std::cout << BLUE << "(FRAGTRAP) " << RESET << _name <<  " just attacked really bad " << target << " causing a demage of " << _attackDamage << std::endl;
+		std::cout << BLUE << "(FRAGTRAP) " << RESET << _name <<  " just attacked really bad " << target << " causing a demage of " << _attackDamage << "points!" << std::endl;
 	}
 }
 
