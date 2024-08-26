@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:39:15 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/25 15:32:23 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:03:19 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ DiamondTrap::DiamondTrap()
 {
 	std::cout << PURPLE << "(DIAMONDTRAP) " << RESET << "constructor has been called for " << PURPLE << "Default." << RESET << std::endl;
 	_name = "Default";
+	ClapTrap::_name = "Default_clap_name";
+	ScavTrap scav("scav_aux");
+	FragTrap frag("frag_aux");
+	_hitPoints = frag.getHitPoints();
+	_energyPoints = scav.getEnergyPoints();
+	_attackDamage = frag.getAttackDamage();
 }
 
 DiamondTrap::DiamondTrap(std::string name)
@@ -36,6 +42,7 @@ DiamondTrap::DiamondTrap(std::string name)
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
 	: ClapTrap(other), ScavTrap(other), FragTrap(other) 
 {
+	_name = other._name;
 	_hitPoints = other._hitPoints;
 	_energyPoints = other._energyPoints;
 	_attackDamage = other._attackDamage;
@@ -45,6 +52,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
 	if (this != &other)
 	{
+		_name = other._name;
 		_hitPoints = other._hitPoints;
 		_energyPoints = other._energyPoints;
 		_attackDamage = other._attackDamage;

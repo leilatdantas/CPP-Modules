@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:55:27 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/17 16:03:00 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/24 15:00:32 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,47 +72,47 @@ std::ostream&	operator<<(std::ostream& out, const Fixed& other)
 	return (out);
 }
 
-bool	Fixed::operator>(const Fixed& other)
+bool	Fixed::operator>(const Fixed& other) const
 {
 	return(this->fixedPoint > other.fixedPoint);
 }
 
-bool	Fixed::operator<(const Fixed& other)
+bool	Fixed::operator<(const Fixed& other) const
 {
 	return (this->fixedPoint < other.fixedPoint);
 }
 
-bool	Fixed::operator>=(const Fixed& other)
+bool	Fixed::operator>=(const Fixed& other) const
 {
 	return (this->fixedPoint >= other.fixedPoint);
 }
 
-bool	Fixed::operator<=(const Fixed& other)
+bool	Fixed::operator<=(const Fixed& other) const
 {
 	return (this->fixedPoint <= other.fixedPoint);
 }
 
-bool	Fixed::operator==(const Fixed& other)
+bool	Fixed::operator==(const Fixed& other) const
 {
 	return (this->fixedPoint == other.fixedPoint);
 }
 
-bool	Fixed::operator!=(const Fixed& other)
+bool	Fixed::operator!=(const Fixed& other) const
 {
 	return(this->fixedPoint != other.fixedPoint);
 }
 
-Fixed	Fixed::operator+(const Fixed& other)
+Fixed	Fixed::operator+(const Fixed& other) const
 {
 	return Fixed(this->toFloat() + other.toFloat());
 }
 
-Fixed	Fixed::operator-(const Fixed& other)
+Fixed	Fixed::operator-(const Fixed& other) const
 {
 	return Fixed(this->toFloat() - other.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed& other)
+Fixed Fixed::operator*(const Fixed& other) const
 {
 	return Fixed(this->toFloat() * other.toFloat());
 }
@@ -120,11 +120,11 @@ Fixed Fixed::operator*(const Fixed& other)
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
-	if (other.toFloat() == 0)
-	{
-		std::cout << "Error: Division by zero" << std::endl; 
-		return (Fixed(0));
-	}
+	// if (other.toFloat() == 0)
+	// {
+	// 	std::cout << "Error: Division by zero" << std::endl; 
+	// 	return (Fixed(0));
+	// }
 	return Fixed(this->toFloat() / other.toFloat());
 }
 

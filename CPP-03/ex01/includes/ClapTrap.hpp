@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:28:57 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/25 15:28:19 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:01:04 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ public:
 	void			status();
 protected:
 	std::string _name;
-	int			_hitPoints;
+	int			_hitPoints;name + "
 	int			_energyPoints;
 	int			_attackDamage;
 };

@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:17:07 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/25 15:19:57 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:01:53 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,18 @@ FragTrap::FragTrap(std::string name)
 FragTrap::FragTrap(const FragTrap& other)
 	: ClapTrap(other)
 {
-	_name = other._name;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
 	if (this != &other)
-	{
 		this->ClapTrap::operator=(other);
-		_name = other._name;
-
-	}
 	return *this;
 }
 
 FragTrap::~FragTrap()
 {
 	std::cout << BLUE << "(FRAGTRAP) " << RESET << "destructor has been called for " << BLUE << _name << RESET << std::endl;
-
 }
 
 void	FragTrap::highFivesGuys(void)
