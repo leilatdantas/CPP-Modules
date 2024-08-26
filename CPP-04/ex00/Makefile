@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lebarbos <lebarbos@student.42.fr>          +#+  +:+       +#+         #
+#    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/26 14:31:57 by lebarbos          #+#    #+#              #
-#    Updated: 2024/08/26 17:12:15 by lebarbos         ###   ########.fr        #
+#    Updated: 2024/08/26 20:23:22 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ SRC_DIR = sources
 OBJ_DIR = objs
 INCLUDE_DIR = includes
 
-SOURCES = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SOURCES = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp	
 OBJECTS = $(SOURCES:.cpp=.o)
 SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJECTS))
-HEADERS = Animal.hpp Cat.hpp Dog.hpp
+HEADERS = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 HEADERS_FILES = $(addprefix $(INCLUDE_DIR)/, $(HEADERS))
 
 all: $(NAME)
