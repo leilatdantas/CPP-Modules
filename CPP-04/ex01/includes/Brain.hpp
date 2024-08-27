@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 14:36:45 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/27 16:14:03 by lebarbos         ###   ########.fr       */
+/*   Created: 2024/08/27 16:19:51 by lebarbos          #+#    #+#             */
+/*   Updated: 2024/08/27 17:16:42 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
-#include <iostream>
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 #include <string>
+#include <iostream>
 
-
-class Animal
+class Brain
 {
 public:
-	Animal();
-	Animal(const Animal& other);
-	Animal& operator=(const Animal& other);
-	virtual	~Animal();
-	virtual void	makeSound() const;
-	std::string		getType() const;
+	Brain();
+	Brain(const Brain& other);
+	Brain& operator=(const Brain& other);
+	~Brain();
 
-protected:
-	std::string	type;
+private:
+	std::string	ideas[100];
 };
 
 #define ROSE "\033[38;5;217m"

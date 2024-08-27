@@ -6,12 +6,12 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:37:32 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/26 17:02:15 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:48:11 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-#define CAT_H
+#ifndef CAT_HPP
+#define CAT_HPP
 #include "Animal.hpp"
 
 class Cat : public Animal
