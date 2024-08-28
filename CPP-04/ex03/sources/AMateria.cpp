@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 14:37:32 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 16:05:30 by lebarbos         ###   ########.fr       */
+/*   Created: 2024/08/28 16:14:51 by lebarbos          #+#    #+#             */
+/*   Updated: 2024/08/28 17:39:31 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
-#include "AAnimal.hpp"
-#include "Brain.hpp"
+#include "../includes/AMateria.hpp"
 
-class Cat : public AAnimal
+AMateria::AMateria()
 {
-public:
-	Cat();
-	Cat(const Cat& other);
-	Cat& operator=(const Cat& other);
-	~Cat();
-	void	makeSound() const;
-private: 
-	const Brain *brain;
-};
+}
 
-#endif
+AMateria::AMateria(std::string const & type)
+	: type(type)
+{
+}
+
+AMateria::AMateria(const AMateria& other)
+{
+	this->type = other.type;
+}
+
+AMateria& AMateria::operator=(const AMateria& other)
+{
+	if (this != &other)
+	{
+		this->type = other.type;
+	}
+	return *this;
+}
+
+AMateria::~AMateria()
+{
+}

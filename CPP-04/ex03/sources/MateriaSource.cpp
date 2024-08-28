@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 14:37:32 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 16:05:30 by lebarbos         ###   ########.fr       */
+/*   Created: 2024/08/28 17:28:19 by lebarbos          #+#    #+#             */
+/*   Updated: 2024/08/28 17:59:16 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
-#include "AAnimal.hpp"
-#include "Brain.hpp"
+#include "../includes/MateriaSource.hpp"
 
-class Cat : public AAnimal
+MateriaSource::MateriaSource()
 {
-public:
-	Cat();
-	Cat(const Cat& other);
-	Cat& operator=(const Cat& other);
-	~Cat();
-	void	makeSound() const;
-private: 
-	const Brain *brain;
-};
+}
 
-#endif
+MateriaSource::MateriaSource(const MateriaSource& other)
+{
+}
+
+MateriaSource& MateriaSource::operator=(const MateriaSource& other)
+{
+	if (this != &other)
+	{
+	}
+	return *this;
+}
+
+MateriaSource::~MateriaSource()
+{
+}
+
+void learnMateria(AMateria*)
+{
+	
+}
+
+AMateria* createMateria(std::string const & type)
+{
+	
+}
+
