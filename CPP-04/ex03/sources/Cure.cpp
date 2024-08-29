@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:57:03 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/29 17:05:40 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 22:37:27 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 Cure::Cure() 
 	: AMateria("cure")
 {
-	std::cout << "(CURE) constructor." << std::endl;
+	std::cout << GREEN << "(CURE) " << RESET << "constructor." << std::endl;
 }
 
 Cure::Cure(const Cure& other)
 	: AMateria(other)
 {
+	std::cout << GREEN << "(CURE) " << RESET << "copy constructor." << std::endl;
 }
 
 Cure& Cure::operator=(const Cure& other)
@@ -28,20 +29,23 @@ Cure& Cure::operator=(const Cure& other)
 	if (this != &other)
 	{
 		AMateria::operator=(other);
+		std::cout << GREEN << "(CURE) " << RESET << "assigment operator constructor." << std::endl;
 	}
 	return *this;
 }
 
 Cure::~Cure()
 {
+	std::cout << GREEN << "(CURE) " << RESET << "destructor." << std::endl;
 }
 
 AMateria* Cure::clone() const
 {
+	std::cout << GREEN << "(CURE) " << RESET << "has been cloned throughout ";
 	return new Cure(*this);
 }
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "* heals " << GREEN << target.getName() << RESET << "'s wounds *" << std::endl;
 }
