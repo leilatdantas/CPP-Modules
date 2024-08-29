@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:28:19 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/29 22:46:41 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 23:21:04 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 			return materias[i]->clone();
 		}
 	}
+	std::cout << "~ there's no  materia named " << PINK << type << RESET  << " ~" << std::endl;
 	return NULL;
 }
 

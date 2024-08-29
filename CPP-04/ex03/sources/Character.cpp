@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:49:38 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/29 22:51:29 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 23:22:29 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,21 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	for(int i = 0; i<=3; i++)
+	if (m)
 	{
-		if (this->inventory[i] == NULL)
+		for(int i = 0; i<=3; i++)
 		{
-			this->inventory[i] = m;
-			std::cout << "~ " << m->getType() << " equiped by " << PURPLE << name << RESET <<  " ~" << std::endl; 
-			return ;		
+			if (this->inventory[i] == NULL)
+			{
+				this->inventory[i] = m;
+				std::cout << "~ " << m->getType() << " equiped by " << PURPLE << name << RESET <<  " ~" << std::endl; 
+				return ;		
+			}
 		}
 	}
+	else
+		std::cout << "~ trying to equip unexistent materia to " << PURPLE << name << RESET <<  " ~" << std::endl; 
+
 }
 
 void Character::unequip(int idx)
