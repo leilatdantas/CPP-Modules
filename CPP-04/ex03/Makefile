@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/29 15:47:30 by lebarbos          #+#    #+#              #
-#    Updated: 2024/08/29 17:24:47 by lebarbos         ###   ########.fr        #
+#    Updated: 2024/08/29 21:38:01 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = materia
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98 -fsanitize=address
+FLAGS = -Werror -Wextra -Wall -std=c++98 #-fsanitize=address
 
 # Diretórios
 SRC_DIR = sources

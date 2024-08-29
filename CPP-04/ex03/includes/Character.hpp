@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:35:55 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/29 15:57:32 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 21:30:51 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #define CHARACTER_HPP
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
+
+struct MateriaNode
+{
+	AMateria* materia;
+	MateriaNode* next;
+};
 
 class Character : public ICharacter
 {
@@ -30,6 +36,9 @@ public:
 
 private:
 	AMateria*			inventory[4];
+	MateriaNode*		unequipedList;
+	void addUnequipedMateria(AMateria* m);
+	void deleteUnequipedMaterias();
 	std::string			name;
 };
 
