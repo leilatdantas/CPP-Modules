@@ -6,13 +6,14 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:35:55 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 17:36:23 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:57:32 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 class Character : public ICharacter
 {

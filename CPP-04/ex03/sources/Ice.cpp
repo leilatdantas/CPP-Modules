@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:57:09 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 17:17:57 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:14:05 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ Ice::~Ice()
 
 AMateria* Ice::clone() const
 {
-	Ice *clone = new Ice(*this);
-	return clone;
+	return new Ice(*this);
 }
 
 void Ice::use(ICharacter& target)

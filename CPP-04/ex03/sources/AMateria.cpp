@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:14:51 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 17:39:31 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:02:20 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,9 @@ AMateria& AMateria::operator=(const AMateria& other)
 
 AMateria::~AMateria()
 {
+}
+
+std::string const & AMateria::getType() const
+{
+	return this->type;
 }

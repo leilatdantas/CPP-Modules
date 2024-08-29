@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:57:03 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 17:06:19 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:05:40 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ Cure::~Cure()
 
 AMateria* Cure::clone() const
 {
-	Cure *clone = new Cure(*this);
-	return clone;
+	return new Cure(*this);
 }
 
 void Cure::use(ICharacter& target)

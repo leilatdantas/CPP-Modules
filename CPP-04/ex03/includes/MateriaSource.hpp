@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:26:16 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 17:58:26 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:36:37 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define MATERIASOURCE_HPP
 #include "IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 public:
 	MateriaSource();
@@ -23,6 +23,8 @@ public:
 	~MateriaSource();
 	void learnMateria(AMateria*);
 	AMateria* createMateria(std::string const & type);
+private: 
+	AMateria* materias[4];
 };
 
 #endif

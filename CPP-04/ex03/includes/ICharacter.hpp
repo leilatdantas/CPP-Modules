@@ -6,14 +6,14 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:18:41 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 17:27:15 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:54:06 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
-#include "Cure.hpp"
-#include "Ice.hpp"
+#include <string> 
+class AMateria;
 
 class ICharacter
 {
