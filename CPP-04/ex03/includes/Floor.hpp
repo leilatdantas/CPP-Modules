@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Floor.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 16:35:55 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/30 13:48:47 by lebarbos         ###   ########.fr       */
+/*   Created: 2024/08/30 13:28:47 by lebarbos          #+#    #+#             */
+/*   Updated: 2024/08/30 15:57:19 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
-#include "ICharacter.hpp"
-#include "Floor.hpp"
+#ifndef FLOOR_HPP
+#define FLOOR_HPP
+#include "Character.hpp"
 #include "AMateria.hpp"
 
-class Character : public ICharacter
+struct s_MateriaNode
+{
+	AMateria* materia;
+	s_MateriaNode* next;
+};
+
+class Floor
 {
 public:
-	Character();
-	Character(std::string name);
-	Character(const Character& other);
-	Character& operator=(const Character& other);
-	~Character();
-	std::string const & getName() const;
-	void equip(AMateria* m);
-	void unequip(int idx);
-	void use(int idx, ICharacter& target);
-
+	Floor();
+	~Floor();
+	static	Floor&	getFloor();
+	static	void	dropMateria(AMateria* m);
+	void			addUnequipedMateria(AMateria* m);
+	static void		removeUnequipedMateria(AMateria *m);
 private:
-	AMateria*			inventory[4];
-	std::string			name;
+	s_MateriaNode*		unequipedList;
 };
 
 #endif

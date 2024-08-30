@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:09:25 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/29 22:11:59 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/30 12:41:05 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ public:
 	AMateria& operator=(const AMateria& other);
 	virtual ~AMateria();
 	std::string const & getType() const;
+	bool const & getStatus() const;
+	void		setStatus(bool status);
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target) = 0;
 
 protected:
 	std::string type;
+	bool		taken;
 };
 
 #define ROSE "\033[38;5;217m"

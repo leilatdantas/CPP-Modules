@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:28:19 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/29 23:21:04 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/08/30 18:03:58 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ MateriaSource::~MateriaSource()
 	for (int i = 0; i < 4; i++)
 	{
 		if (materias[i])
+		{
 			delete materias[i];
+		}
 	}
 }
 
@@ -64,6 +66,7 @@ void MateriaSource::learnMateria(AMateria* m)
 			return ;
 		}
 	}
+	std::cout  << "~ there is no space left to learn " <<  m->getType() << " ~" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

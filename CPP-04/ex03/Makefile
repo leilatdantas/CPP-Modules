@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/29 15:47:30 by lebarbos          #+#    #+#              #
-#    Updated: 2024/08/29 21:38:01 by lebarbos         ###   ########.fr        #
+#    Updated: 2024/08/30 17:04:26 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ SRC_DIR = sources
 OBJ_DIR = objs
 INCLUDE_DIR = includes
 
-SOURCES = main.cpp AMateria.cpp MateriaSource.cpp Ice.cpp Cure.cpp Character.cpp
+SOURCES = main.cpp AMateria.cpp MateriaSource.cpp Ice.cpp Cure.cpp Character.cpp Floor.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJECTS))
-HEADERS = MateriaSource.hpp IMateriaSource.hpp ICharacter.hpp Ice.hpp Cure.hpp Character.hpp AMateria.hpp 
+HEADERS = MateriaSource.hpp IMateriaSource.hpp ICharacter.hpp Ice.hpp Cure.hpp Character.hpp AMateria.hpp Floor.hpp
 HEADERS_FILES = $(addprefix $(INCLUDE_DIR)/, $(HEADERS))
 
 all: $(NAME)
