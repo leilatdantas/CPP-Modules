@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 15:45:20 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/30 18:19:19 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:12:03 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,17 @@ int main()
 {
 
     // subjectTests();
-    myTests();
+
+    AMateria *c1 = new Cure();
+    AMateria *i1 = new Ice();
+    ICharacter *bob = new Character("bob");
+    std::cout << i1->getType() << std::endl;
+    i1->use(*bob);
+    *i1 = *c1;
+    std::cout << i1->getType() << std::endl;
+    i1->use(*bob);
+    delete c1;
+    delete i1;
+    // myTests();
     return 0;
 }
