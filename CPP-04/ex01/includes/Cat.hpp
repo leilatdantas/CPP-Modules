@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:37:32 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/27 16:41:06 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:25:31 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ public:
 	Cat& operator=(const Cat& other);
 	~Cat();
 	void	makeSound() const;
+	
+	void setBrainThought(int index, const std::string& thought);
+    void printBrainThoughts() const;
+
 private: 
-	const Brain *brain;
+	Brain *brain;
+
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:23:42 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/27 16:38:25 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:27:01 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Brain& Brain::operator=(const Brain& other)
 		for (int i = 0; i < 100; i++)
 			this->ideas[i] = other.ideas[i];
 		std::cout << GREEN << "(BRAIN) " << RESET << "copy assigment operator has been called." << std::endl; 
-
 	}
 	return *this;
 }
@@ -41,4 +40,18 @@ Brain& Brain::operator=(const Brain& other)
 Brain::~Brain()
 {
 	std::cout << GREEN << "(BRAIN) " << RESET << "destructor has been called." << std::endl; 
+}
+
+void Brain::setThought(int index, const std::string& thought) 
+{
+	if (index >= 0 && index < 3) {
+		ideas[index] = thought;
+	}
+}
+    
+void Brain::printThoughts() const 
+{
+	for (int i = 0; i < 3; ++i) {
+		std::cout << "Thought " << i << ": " << ideas[i] << std::endl;
+	}
 }

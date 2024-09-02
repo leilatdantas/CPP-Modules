@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 15:14:15 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/27 17:13:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:22:47 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ public:
 	Dog& operator=(const Dog& other);
 	~Dog();
 	void	makeSound() const;
+
+	void setBrainThought(int index, const std::string& thought);
+    void printBrainThoughts() const;
 private:
-	const Brain	*brain;
+	Brain	*brain;
 };
 
 #endif
