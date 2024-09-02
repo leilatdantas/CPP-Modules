@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 13:33:03 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/30 16:23:52 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:33:03 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Floor::Floor()
 
 Floor::~Floor()
 {
+	std::cout << ORANGE << "~ destroying materias on the floor ~" << RESET << std::endl;
 	s_MateriaNode* tmp = unequipedList;
 	while(tmp)
 	{

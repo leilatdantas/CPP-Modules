@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:09:25 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/01 18:02:56 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:19:27 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,26 @@
 
 class AMateria
 {
-public:
-	AMateria();
-	AMateria(std::string const & type);
-	AMateria(const AMateria& other);
-	AMateria& operator=(const AMateria& other);
-	virtual ~AMateria();
-	std::string const & getType() const;
-	bool const & getStatus() const;
-	void		setStatus(bool status);
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target) = 0;
-
 protected:
 	std::string type;
 	bool		taken;
+
+public:
+	AMateria(std::string const & type);
+	
+	AMateria();
+	AMateria(const AMateria& other);
+	AMateria& operator=(const AMateria& other);
+	virtual ~AMateria();
+	
+	std::string const & getType() const;
+	
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
+	
+	bool const & getStatus() const;
+	void		setStatus(bool status);
+
 };
 
 #define ROSE "\033[38;5;217m"

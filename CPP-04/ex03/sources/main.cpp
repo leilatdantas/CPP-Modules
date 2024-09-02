@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 15:45:20 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/01 18:12:03 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:49:48 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void    myTests()
     // Testing the copy constructor
     std::cout << YELLOW << "\n=== Testing the copy constructor ===" << RESET << std::endl;
     Character* copy = new Character(*me);
-    std::cout << GRAY << "'copy' character created from 'me'." << RESET << std::endl;
+    std::cout << GRAY << copy->getName() << " character created from 'me'." << RESET << std::endl;
+    copy->addToName("_copy");
     copy->use(0, *bob);
     copy->use(1, *bob);
     copy->unequip(0);
@@ -90,6 +91,7 @@ void    myTests()
     Character* assignment = new Character("assignment");
     *assignment = *me;
     std::cout << GRAY << "'assignment' character is now a copy of 'me'." <<  RESET << std::endl;
+    assignment->addToName("_assigment");
     assignment->use(0, *bob);
     assignment->use(1, *bob);
     assignment->unequip(1);
@@ -112,19 +114,7 @@ void    myTests()
 
 int main() 
 {
-
-    // subjectTests();
-
-    AMateria *c1 = new Cure();
-    AMateria *i1 = new Ice();
-    ICharacter *bob = new Character("bob");
-    std::cout << i1->getType() << std::endl;
-    i1->use(*bob);
-    *i1 = *c1;
-    std::cout << i1->getType() << std::endl;
-    i1->use(*bob);
-    delete c1;
-    delete i1;
-    // myTests();
+    subjectTests();
+    myTests();
     return 0;
 }

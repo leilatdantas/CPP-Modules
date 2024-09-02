@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:35:55 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/30 13:48:47 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:39:25 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
+	void	addToName(std::string newName);
 
 private:
 	AMateria*			inventory[4];

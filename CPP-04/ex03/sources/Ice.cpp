@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:57:09 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/29 21:58:49 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:28:28 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Ice::Ice()
 Ice::Ice(const Ice& other)
 	: AMateria(other)
 {
+	this->type = other.type;
 	std::cout << BLUE << "(ICE) " << RESET << "copy constructor." << std::endl;
 }
 
@@ -29,6 +30,7 @@ Ice& Ice::operator=(const Ice& other)
 	if (this != &other)
 	{
 		AMateria::operator=(other);
+		this->type = other.type;
 		std::cout << BLUE << "(ICE) " << RESET << "assigment operator constructor." << std::endl;
 	}
 	return *this;

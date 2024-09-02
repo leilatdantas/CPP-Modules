@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:14:51 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/01 18:12:30 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:21:42 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ AMateria::AMateria(std::string const & type)
 
 AMateria::AMateria(const AMateria& other)
 {
-	this->type = other.type;
+	(void)other;
 	this->taken = false;
 }
 
@@ -31,7 +31,7 @@ AMateria& AMateria::operator=(const AMateria& other)
 {
 	if (this != &other)
 	{
-		this->type = other.type;
+		(void)other;
 		this->taken = false;
 	}
 	return *this;
@@ -54,5 +54,11 @@ bool const & AMateria::getStatus() const
 void	AMateria::setStatus(bool status)
 {
 	this->taken = status;
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	std::cout << "AMateria use called." << std::endl; 
+	(void)target;
 }
 

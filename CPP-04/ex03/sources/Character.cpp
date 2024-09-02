@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:49:38 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/30 17:06:40 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:42:18 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Character::Character()
 {
 	for (int i = 0; i <= 3; i++)
 		inventory[i] = NULL;
-	std::cout << PURPLE << name << RESET << " constructor." << std::endl; 
+	std::cout << "Character constructor called by " << PURPLE << name << RESET << std::endl; 
 }
 
 Character::Character(std::string name)
@@ -25,7 +25,7 @@ Character::Character(std::string name)
 {
 	for (int i = 0; i <= 3; i++)
 		inventory[i] = NULL;
-	std::cout << PURPLE << name << RESET << " constructor." << std::endl; 
+	std::cout << "Character constructor called by " << PURPLE << name << RESET << std::endl; 
 }
 
 Character::Character(const Character& other)
@@ -124,4 +124,9 @@ void Character::use(int idx, ICharacter& target)
 		inventory[idx]->use(target);
 	else 
    		std::cout <<  "~ the materia you are trying to use is " <<  RED << "NOT " <<  RESET << "equiped by " << PURPLE <<  name << RESET << " ~" << std::endl;
+}
+
+void	Character::addToName(std::string newName)
+{
+	this->name = name + newName;
 }
