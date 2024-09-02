@@ -6,31 +6,28 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 16:29:07 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/27 16:14:27 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:11:44 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Animal.hpp"
 
 Animal::Animal()
+	: type("AnimalDefault")
 {
-	this->type = "AnimalDefault";
 	std::cout << PINK << "(ANIMAL) " << RESET << "constructor called for " << PINK << this->type << RESET << std::endl; 
 }
 
 Animal::Animal(const Animal& other)
 {
-	this->type = other.type;
-	std::cout << PINK << "(ANIMAL) " << RESET << "copy constructor called for " << PINK << this->type << RESET << "." << std::endl; 
+	(void)other;
+	std::cout << PINK << "(ANIMAL) " << RESET << "copy constructor called." << std::endl; 
 }
 
 Animal& Animal::operator=(const Animal& other)
 {
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
-	std::cout << PINK << "(ANIMAL) " << RESET << "copy operator assignment constructor called for " << PINK << this->type << RESET << std::endl; 
+	(void)other;
+	std::cout << PINK << "(ANIMAL) " << RESET << "copy operator assignment constructor called." << std::endl; 
 	return *this;
 }
 

@@ -6,30 +6,27 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:44:19 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/27 16:17:45 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:52:29 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal()
+	: type("WrongAnimalDefault")
 {
-	this->type = "WrongAnimalDefault";
 	std::cout << RED << "(WRONGANIMAL) " << RESET << "constructor called for " << RED << this->type << RESET << std::endl; 
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
 {
-	this->type = other.type;
+	(void)other;
 	std::cout << RED << "(WRONGANIMAL) " << RESET << "copy constructor called for " << RED << this->type << RESET << std::endl; 
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 {
-	if (this != &other)
-	{
-		this->type = other.type;
-	}
+	(void)other;
 	std::cout << RED << "(WRONGANIMAL) " << RESET << "copy operator assignment constructor called for " << RED << this->type << RESET << std::endl; 
 	return *this;
 }
