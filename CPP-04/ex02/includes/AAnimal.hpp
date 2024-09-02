@@ -15,7 +15,6 @@
 #include <iostream>
 #include <string>
 
-
 class AAnimal
 {
 public:

@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 16:01:42 by lebarbos          #+#    #+#              #
-#    Updated: 2024/08/28 14:58:05 by lebarbos         ###   ########.fr        #
+#    Updated: 2024/09/02 14:56:49 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC_DIR = sources
 OBJ_DIR = objs
 INCLUDE_DIR = includes
 
-SOURCES = main.cpp $(HEADERS:.hpp=.cpp)
+SOURCES = main.cpp AAnimal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJECTS))

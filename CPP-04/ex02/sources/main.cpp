@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 16:56:53 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/28 14:59:35 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:59:57 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int main()
 {
-    // const AAnimal* animal = new AAnimal();
+    // const AAnimal test;
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
-    delete j;//should not create a leak
+    delete j;
     delete i;
     return 0;
 }

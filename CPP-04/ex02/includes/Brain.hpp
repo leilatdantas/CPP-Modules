@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:19:51 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/08/27 17:16:42 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:21:50 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ public:
 	Brain& operator=(const Brain& other);
 	~Brain();
 
+	void setThought(int index, const std::string& thought);
+	void printThoughts() const;
 private:
 	std::string	ideas[100];
 };
