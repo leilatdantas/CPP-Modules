@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:23:42 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/02 14:27:01 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:47:36 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ Brain::~Brain()
 
 void Brain::setThought(int index, const std::string& thought) 
 {
-	if (index >= 0 && index < 3) {
+	if (index >= 0 && index < 3)
 		ideas[index] = thought;
-	}
 }
     
 void Brain::printThoughts() const 

@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 16:37:46 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/02 14:28:40 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:47:25 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Cat& Cat::operator=(const Cat& other)
 			this->brain = new Brain(*(other.brain));
 		else if (this->brain && !other.brain) 
 		{
-			delete this->brain; 
+			delete this->brain;
 			this->brain = NULL;
 		}
 	}
