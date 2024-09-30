@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 15:24:10 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/29 15:42:22 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:14:55 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ void Form::beSigned(Bureaucrat& b)
 	_isSigned = true;
 }
 
-const char* Form::GradeTooHighException::what() const noexcept
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return DARK_RED "Form-Grade is too high!" RESET;
 }
 
-const char* Form::GradeTooLowException::what() const noexcept
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return DARK_GREEN "Form-Grade is too low!" RESET;
 }

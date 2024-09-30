@@ -6,16 +6,16 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:23 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/29 15:41:41 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/29 20:25:36 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
-#include "Form.hpp"
 #include <iostream>
 #include <string>
 #include <exception>
+class Form;
 
 class Bureaucrat
 {

@@ -6,11 +6,12 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/29 15:43:23 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/29 20:26:10 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
 Bureaucrat::Bureaucrat()
 	: _name("Default"), _grade(150)
