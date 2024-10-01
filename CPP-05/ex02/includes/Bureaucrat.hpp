@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:23 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/30 20:44:47 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/01 08:36:08 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ public:
 	Bureaucrat(const Bureaucrat& other);
 	Bureaucrat& operator=(const Bureaucrat& other);
 	~Bureaucrat();
-	std::string	getName();
-	int			getGrade();
+	std::string	getName() const;
+	int			getGrade() const;
 	void		incrementGrade();
 	void		decrementGrade();
 	void		signForm(AForm &form);
+	void		executeForm(AForm const & form);
 	class GradeTooHighException : public std::exception
 	{
 	public:

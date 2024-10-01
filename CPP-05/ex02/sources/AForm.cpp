@@ -43,22 +43,22 @@ AForm::~AForm()
 	std::cout << "AForm " << BLUE << getName() << RESET << " destructor called." << std::endl;
 }
 
-std::string	AForm::getName()
+std::string	AForm::getName() const
 {
 	return _name;
 }
 
-int		AForm::getSignGrade()
+int		AForm::getSignGrade() const
 {
 	return _gradeToSign;
 }
 	
-int		AForm::getExecuteGrade()
+int		AForm::getExecuteGrade() const
 {
 	return _gradeToExecute;
 }
 	
-bool	AForm::isSigned()
+bool	AForm::isSigned() const
 {
 	return _isSigned;
 }
@@ -78,4 +78,18 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
 	return DARK_GREEN "AForm-Grade is too low!" RESET;
+}
+
+const char* AForm::FormNotSignedExeption::what() const throw()
+{
+	return DARK_YELLOW "AForm-Not signed!" RESET;
+}
+
+std::ostream& operator<<(std::ostream &out, AForm& form)
+{
+	out << "Form: " << GREEN << form.getName() << RESET 
+	<< ", requires grade " << GREEN << form.getSignGrade() << RESET 
+	<< " to sign and grade " << form.getExecuteGrade() << " to execute. Signed: "
+	<< (form.isSigned() ? "Yes" : "No");
+	return out;
 }

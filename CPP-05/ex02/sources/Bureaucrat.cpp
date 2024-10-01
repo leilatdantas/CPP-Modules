@@ -6,12 +6,12 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/30 20:44:47 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/01 09:02:17 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
+#include "../includes/AForm.hpp"
 
 Bureaucrat::Bureaucrat()
 	: _name("Default"), _grade(150)
@@ -50,12 +50,12 @@ Bureaucrat::~Bureaucrat()
 	std::cout << RED << getName() << RESET << " destructor called." << std::endl;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return _name;
 }
 
-int			Bureaucrat::getGrade()
+int			Bureaucrat::getGrade() const
 {
 	return _grade;
 }
@@ -88,6 +88,19 @@ void	Bureaucrat::signForm(AForm &form)
 	{
 		form.beSigned(*this);
 		std::cout << getName() << " signs " << form.getName() << "." << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executed " << form.getName() << std::endl; 
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << *this << " coudn't execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 

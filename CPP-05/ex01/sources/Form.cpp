@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 15:24:10 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/30 20:14:55 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/01 08:09:10 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,13 @@ const char* Form::GradeTooLowException::what() const throw()
 {
 	return DARK_GREEN "Form-Grade is too low!" RESET;
 }
+
+std::ostream& operator<<(std::ostream &out, Form& other)
+{
+	out << "Form: " << GREEN << other.getName() << RESET 
+	<< ", requires grade " << GREEN << other.getSignGrade() << RESET 
+	<< " to sign and grade " << other.getExecuteGrade() << " to execute. Signed: "
+	<< (other.isSigned() ? "Yes" : "No");
+	return out;
+}
+
