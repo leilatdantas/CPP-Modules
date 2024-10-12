@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/29 14:15:01 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/12 14:34:33 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,19 @@ int			Bureaucrat::getGrade()
 
 void	Bureaucrat::incrementGrade()
 {
-	std::cout << "Calling increment function... " << std::endl;
+	std::cout << DARK_GRAY << "Calling increment function for " << LIGHT_GREEN<< getName() << RESET << std::endl;
 	if (_grade - 1 < 1)
 		throw GradeTooHighException();
 	_grade--;
-	std::cout << "Increment done." << std::endl;
+	std::cout << LIGHT_GREEN << "Increment done for " << getName() << "!" << RESET << std::endl;
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	std::cout << "Calling decrement function... " << std::endl;
+	std::cout << DARK_GRAY << "Calling decrement function for " << LIGHT_RED << getName() << RESET << std::endl;
 	if (_grade + 1 > 150)
 		throw GradeTooLowException();
-	std::cout << "Decrement done!" << std::endl;
+	std::cout << LIGHT_RED << "Decrement done for " << getName() << "!" << RESET << std::endl;
 	_grade++;
 }
 
