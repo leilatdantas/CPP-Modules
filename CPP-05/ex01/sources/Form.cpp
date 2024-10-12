@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 15:24:10 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/01 08:09:10 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/12 14:00:05 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 Form::Form()
 	: _name("Defalult"), _isSigned(false), _gradeToSign(1), _gradeToExecute(1)
 {
-	std::cout << CYAN << getName() << " constructor called with gradeToSign " << CYAN << getSignGrade() << RESET << " and gradeToExecute " << CYAN << getExecuteGrade() << RESET << std::endl; 
+	std::cout << CYAN << getName() << RESET << " constructor called with gradeToSign " << CYAN << getSignGrade() << RESET << " and gradeToExecute " << CYAN << getExecuteGrade() << RESET << std::endl; 
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute)
 	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+	{
+		throw Form::GradeTooHighException();
+	}
+	if (_gradeToSign > 150 || _gradeToExecute > 150)
+	{
+		throw Form::GradeTooLowException();
+	}
+	std::cout << CYAN << getName() << RESET << " constructor called with gradeToSign " << CYAN << getSignGrade() << RESET << " and gradeToExecute " << CYAN << getExecuteGrade() << RESET << std::endl; 
 }
 
 Form::Form(const Form& other)
@@ -33,7 +42,7 @@ Form& Form::operator=(const Form& other)
 	if (this != &other)
 	{
 		_isSigned = other._isSigned;
-		// Note: _name, _gradeToSign, and _gradeToExecute are not assigned because they are const
+		// _name, _gradeToSign, and _gradeToExecute are not assigned because they are const
 	}
 	return *this;
 }
@@ -77,7 +86,7 @@ const char* Form::GradeTooHighException::what() const throw()
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return DARK_GREEN "Form-Grade is too low!" RESET;
+	return DARK_CYAN "Form-Grade is too low!" RESET;
 }
 
 std::ostream& operator<<(std::ostream &out, Form& other)

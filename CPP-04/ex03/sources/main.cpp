@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 15:45:20 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/02 15:49:48 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:30:09 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,6 @@ void    myTests()
 int main() 
 {
     subjectTests();
-    myTests();
+    // myTests();
     return 0;
 }

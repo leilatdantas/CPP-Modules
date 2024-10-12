@@ -33,7 +33,7 @@ AForm& AForm::operator=(const AForm& other)
 	if (this != &other)
 	{
 		_isSigned = other._isSigned;
-		// Note: _name, _gradeToSign, and _gradeToExecute are not assigned because they are const
+		// _name, _gradeToSign, and _gradeToExecute are not assigned because they are const
 	}
 	return *this;
 }
@@ -72,12 +72,12 @@ void AForm::beSigned(Bureaucrat& b)
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return DARK_RED "AForm-Grade is too high!" RESET;
+	return DARK_GREEN "AForm-Grade is too high!" RESET;
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return DARK_GREEN "AForm-Grade is too low!" RESET;
+	return DARK_RED "AForm-Grade is too low!" RESET;
 }
 
 const char* AForm::FormNotSignedExeption::what() const throw()
@@ -89,7 +89,7 @@ std::ostream& operator<<(std::ostream &out, AForm& form)
 {
 	out << "Form: " << GREEN << form.getName() << RESET 
 	<< ", requires grade " << GREEN << form.getSignGrade() << RESET 
-	<< " to sign and grade " << form.getExecuteGrade() << " to execute. Signed: "
-	<< (form.isSigned() ? "Yes" : "No");
+	<< " to sign and grade " << GREEN << form.getExecuteGrade() << RESET << " to execute. \nSigned: "
+	<< RED << (form.isSigned() ? "Yes" : "No") << RESET;
 	return out;
 }

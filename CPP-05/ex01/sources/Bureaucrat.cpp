@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/29 20:26:10 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:58:04 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,33 +62,53 @@ int			Bureaucrat::getGrade()
 
 void	Bureaucrat::incrementGrade()
 {
-	std::cout << "Calling increment function... " << std::endl;
+	std::cout << DARK_GRAY << "Calling increment function... " << RESET << std::endl;
 	if (_grade - 1 < 1)
 		throw GradeTooHighException();
 	_grade--;
-	std::cout << "Increment done." << std::endl;
+	std::cout << LIGHT_GREEN << "Increment done!" << RESET << std::endl;
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	std::cout << "Calling decrement function... " << std::endl;
+	std::cout << DARK_GRAY << "Calling decrement function... " << RESET << std::endl;
 	if (_grade + 1 > 150)
 		throw GradeTooLowException();
-	std::cout << "Decrement done!" << std::endl;
+	std::cout << LIGHT_RED << "Decrement done!" << RESET << std::endl;
 	_grade++;
 }
 
-void	Bureaucrat::signForm(Form &form)
+// void	Bureaucrat::signForm(Form &form)
+// {
+// 	if (form.isSigned())
+// 		std::cout << getName() << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
+// 	else if (_grade > form.getSignGrade())
+// 		std::cout << getName() << " cannot sign " << form.getName() << " because their grade is too low." << std::endl;
+// 	else
+// 	{
+// 		form.beSigned(*this);
+// 		std::cout << getName() << " signs " << form.getName() << "." << std::endl;
+// 	}
+// }
+
+void Bureaucrat::signForm(Form &form)
 {
-	if (form.isSigned())
-		std::cout << getName() << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
-	else if (_grade > form.getSignGrade())
-		std::cout << getName() << " cannot sign " << form.getName() << " because their grade is too low." << std::endl;
-	else
-	{
-		form.beSigned(*this);
-		std::cout << getName() << " signs " << form.getName() << "." << std::endl;
-	}
+    try
+    {
+        if (form.isSigned())
+			std::cout << getName() << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
+        else if (_grade > form.getSignGrade())
+            throw GradeTooLowException();
+        else
+        {
+            form.beSigned(*this);
+            std::cout << getName() << " signs " << form.getName() << "." << std::endl;
+        }
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << getName() << " cannot sign " << form.getName() << " because: " << e.what() << std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

@@ -6,11 +6,12 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 08:23:35 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/01 09:04:55 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/12 11:07:17 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RobotomyRequestForm.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm()
 	: AForm("RobotomyRequestFormDefault", 72, 45), target("Default")
@@ -49,9 +50,9 @@ void	RobotomyRequestForm::execute(Bureaucrat const &  executor) const
 		throw AForm::FormNotSignedExeption();
 	if (executor.getGrade() > getSignGrade())
 		throw AForm::GradeTooLowException();
-	std::cout << "* Drilling noises *" << std::endl;
+	std::cout << DARK_BLUE << "* Drilling noises *" << RESET << std::endl;
 	if (rand() % 2)
-		std::cout << target << "has been romotomized successfully!" << std::endl;
+		std::cout << PURPLE << target << RESET << " has been romotomized successfully!" << std::endl;
 	else
 		std::cout << "Robotomy failed for " << target << "!" << std::endl; 
 }
