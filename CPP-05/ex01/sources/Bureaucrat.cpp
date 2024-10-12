@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/12 13:58:04 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:12:08 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,37 +78,19 @@ void	Bureaucrat::decrementGrade()
 	_grade++;
 }
 
-// void	Bureaucrat::signForm(Form &form)
-// {
-// 	if (form.isSigned())
-// 		std::cout << getName() << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
-// 	else if (_grade > form.getSignGrade())
-// 		std::cout << getName() << " cannot sign " << form.getName() << " because their grade is too low." << std::endl;
-// 	else
-// 	{
-// 		form.beSigned(*this);
-// 		std::cout << getName() << " signs " << form.getName() << "." << std::endl;
-// 	}
-// }
-
-void Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(Form &form)
 {
-    try
-    {
-        if (form.isSigned())
-			std::cout << getName() << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
-        else if (_grade > form.getSignGrade())
-            throw GradeTooLowException();
-        else
-        {
-            form.beSigned(*this);
-            std::cout << getName() << " signs " << form.getName() << "." << std::endl;
-        }
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << getName() << " cannot sign " << form.getName() << " because: " << e.what() << std::endl;
-    }
+	if (form.isSigned())
+		std::cout << getName() << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
+	else 
+	{
+		try {
+			form.beSigned(*this);
+			std::cout << getName() << " signs " << form.getName() << "." << std::endl;
+		} catch (std::exception& e) {
+			std::cout << getName() << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+		}
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

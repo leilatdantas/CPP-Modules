@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 20:17:58 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/12 13:56:00 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:09:06 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main()
     {
    		std::cout << LIGHT_BLUE << "\n\n== Initial tests ==" << RESET << std::endl;
         Bureaucrat bob("Bob", 10);
-        Form remake("Remake", 50, 100);
+        Form remake("Remake", 20, 100);
         bob.signForm(remake);
 		bob.signForm(remake);
         // Additional tests
