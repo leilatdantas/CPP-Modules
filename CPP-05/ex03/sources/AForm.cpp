@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 15:24:10 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 14:38:18 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 12:54:17 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 AForm::AForm()
 	: _name("Default"), _isSigned(false), _gradeToSign(1), _gradeToExecute(1)
 {
-	std::cout << DARK_CYAN "- " << getName() << " constructor called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << RESET << std::endl; 
+	std::cout << DARK_CYAN "- " << getName() << " form constructor called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << RESET << std::endl; 
 }
 
 AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
@@ -29,13 +29,13 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
 	{
 		throw AForm::GradeTooLowException();
 	}
-	std::cout << DARK_CYAN "- " << getName() << " constructor called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << RESET << std::endl; 
+	std::cout << DARK_CYAN "- " << getName() << " form constructor called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << RESET << std::endl; 
 }
 
 AForm::AForm(const AForm& other)
 	: _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
-	std::cout << DARK_CYAN "- " << getName() << " copy constructor called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << RESET << std::endl; 
+	std::cout << DARK_CYAN "- " << getName() << " form copy constructor called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << RESET << std::endl; 
 }
 
 AForm& AForm::operator=(const AForm& other)
@@ -44,14 +44,14 @@ AForm& AForm::operator=(const AForm& other)
 	{
 		(void)other;
 		// _name, _gradeToSign, and _gradeToExecute are not assigned because they are const
-		std::cout << DARK_CYAN "- " << getName() << " copy assignment called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << " - " << RESET << std::endl; 
+		std::cout << DARK_CYAN "- " << getName() << " form copy assignment called with gradeToSign " << getSignGrade() << " and gradeToExecute " << getExecuteGrade() << " - " << RESET << std::endl; 
 	}
 	return *this;
 }
 
 AForm::~AForm()
 {
-	std::cout << ORANGE << "- " << getName() << " destructor called - " << RESET << std::endl;
+	std::cout << ORANGE << "- Form " << getName() << " destructor called - " << RESET << std::endl;
 }
 
 std::string	AForm::getName() const

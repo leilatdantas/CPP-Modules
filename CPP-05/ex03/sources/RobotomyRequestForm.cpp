@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 08:23:35 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 14:39:15 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 13:32:24 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: AForm("RobotomyRequestFormDefault", 72, 45), target("Default"), executionCount(0)
+	: AForm("RobotomyRequestFormDefault", 72, 45), target("Default")
 {
+	srand(time(0));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-	: AForm("RobotomyRequestForm", 72, 45), target(target), executionCount(0)
+	: AForm("RobotomyRequestForm", 72, 45), target(target)
 {
 	srand(time(0));
 }
@@ -50,9 +51,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const &  executor) const
 	if (executor.getGrade() > getSignGrade())
 		throw Bureaucrat::GradeTooLowException();
 	std::cout << ITALIC << ROSE << "\n* Drilling noises *" << RESET << std::endl;
-	if (executionCount % 2)
-		std::cout << "Robotomy failed for " << target << "!" << std::endl;
+	if (rand() % 2)
+		std::cout << PURPLE << target << RESET << " has been romotomized successfully!" << std::endl;
 	else
-		std::cout << PURPLE << target << RESET << " has been robotomized successfully!" << std::endl;
-	executionCount++;
+		std::cout << "Robotomy failed for " << target << "!" << std::endl; 
 }

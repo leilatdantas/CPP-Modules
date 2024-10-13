@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 08:22:00 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 14:36:54 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/01 08:23:29 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ public:
 
 private:
 	std::string target;
-	mutable int executionCount;
 };
 
 #endif

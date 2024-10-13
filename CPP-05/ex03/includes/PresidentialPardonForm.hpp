@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 08:22:00 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 14:36:54 by lebarbos         ###   ########.fr       */
+/*   Created: 2024/09/30 20:46:44 by lebarbos          #+#    #+#             */
+/*   Updated: 2024/10/01 08:30:05 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
-#include "AForm.hpp"
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
+#include "../includes/AForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 public:
-	RobotomyRequestForm();
-	RobotomyRequestForm(const std::string& target);
-	RobotomyRequestForm(const RobotomyRequestForm& other);
-	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-	virtual ~RobotomyRequestForm();
+	PresidentialPardonForm();
+	PresidentialPardonForm(const std::string& target);
+	PresidentialPardonForm(const PresidentialPardonForm& other);
+	PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
+	virtual ~PresidentialPardonForm();
 	void	execute(Bureaucrat const & executor) const;
 
 private:
-	std::string target;
-	mutable int executionCount;
+	std::string target; 
 };
 
 #endif

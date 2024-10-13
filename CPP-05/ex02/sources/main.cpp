@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 08:58:24 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 14:09:59 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 14:34:18 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void testSigningForms()
         std::cout << DARK_GRAY << "==================================================================\n" << RESET << std::endl;
         john.executeForm(shrubbery);
         // alice.executeForm(shrubbery);
+        alice.executeForm(robotomy);
+        bob.executeForm(robotomy);
         alice.executeForm(robotomy);
         bob.executeForm(pardon);
     }

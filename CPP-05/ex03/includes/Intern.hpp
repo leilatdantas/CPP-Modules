@@ -6,13 +6,16 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:07:50 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/07 09:12:34 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 14:14:04 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERN_HPP
 #define INTERN_HPP
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 #include <string> 
 
@@ -23,9 +26,10 @@ public:
 	Intern(const Intern& other);
 	Intern& operator=(const Intern& other);
 	~Intern();
-	Form&	makeForm(std::string formName, std::string target);
-
-private:
+	AForm*	makeForm(std::string form, std::string target);
+	AForm*	newShrubbery(std::string target);
+	AForm*	newPresidential(std::string target);
+	AForm*	newRobotomy(std::string target);
 };
 
 #endif
