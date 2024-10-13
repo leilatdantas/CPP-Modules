@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 14:39:42 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/09/29 15:26:43 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 11:49:15 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ public:
 	class GradeTooLowException : public std::exception
 	{
 	public:
+		const char* what() const throw();
+	};
+	class AlreadySignedException : public std::exception
+	{
+	public: 
 		const char* what() const throw();
 	};
 

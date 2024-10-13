@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 20:17:58 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/12 16:09:06 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 12:30:32 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,6 @@ void testCopyConstructor()
     }
 }
 
-void testCopyAssignment()
-{
-    std::cout << LIGHT_BLUE << "\n\n== Testing Copy Assignment Operator ==" << RESET << std::endl;
-    try {
-        Form formA("FormA", 50, 100);
-        Form formB("FormB", 20, 80);
-
-        std::cout << "Before assignment:" << std::endl;
-        std::cout << "Form A: " << formA << std::endl;
-        std::cout << "Form B: " << formB << std::endl;
-
-        formB = formA; // Using the copy assignment operator
-
-        std::cout << "After assignment:" << std::endl;
-        std::cout << "Form A: " << formA << std::endl;
-        std::cout << "Form B (after assignment): " << formB << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-}
-
 int main()
 {
     try
@@ -56,11 +35,12 @@ int main()
    		std::cout << LIGHT_BLUE << "\n\n== Initial tests ==" << RESET << std::endl;
         Bureaucrat bob("Bob", 10);
         Form remake("Remake", 20, 100);
+        std::cout << remake << std::endl;
         bob.signForm(remake);
 		bob.signForm(remake);
-        // Additional tests
-        testCopyConstructor();
-        testCopyAssignment();
+        std::cout << remake << std::endl;
+        std::cout << bob << std::endl;
+        // testCopyConstructor();
     }
     catch (const std::exception& e)
     {
