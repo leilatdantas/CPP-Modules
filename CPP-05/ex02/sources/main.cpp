@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 08:58:24 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 13:09:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 13:11:05 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void testSigningForms()
 {
     Bureaucrat john("John", 146);
     Bureaucrat alice("Alice", 50);
-    Bureaucrat bob("Bob", 1);
+    Bureaucrat bob("Bob", 0);
 
     ShrubberyCreationForm shrubbery("home");
     RobotomyRequestForm robotomy("Bender");
