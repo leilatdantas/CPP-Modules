@@ -39,6 +39,11 @@ public:
 	public:
 		const char* what() const throw();
 	};
+	class AlreadySignedException : public std::exception
+	{
+	public: 
+		const char* what() const throw();
+	};
 	class FormNotSignedExeption : public std::exception
 	{
 	public:

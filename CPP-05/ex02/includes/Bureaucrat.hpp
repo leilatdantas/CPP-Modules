@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:23 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/01 08:36:08 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 12:48:01 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ std::ostream& operator<<(std::ostream &out, Bureaucrat& other);
 #define PINK "\033[38;5;198m"
 #define RESET "\033[0m"
 #define BOLD "\e[1m"
+#define UNDERLINE "\e[4m"
+#define ITALIC "\e[3m"
 #define BLACK "\033[38;5;0m"
 #define DARK_RED "\033[38;5;88m"
 #define DARK_GREEN "\033[38;5;22m"

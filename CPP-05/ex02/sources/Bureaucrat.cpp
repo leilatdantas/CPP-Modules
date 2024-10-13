@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/01 09:02:17 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 12:56:16 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Bureaucrat::Bureaucrat()
 	: _name("Default"), _grade(150)
 {
-	std::cout << CYAN << getName() << RESET << " constructor called with grade " << CYAN << getGrade() << RESET << "." << std::endl;
+	std::cout << CYAN << "- " << getName() << " constructor called with grade " << getGrade() << " -" << RESET  << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -26,13 +26,13 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 		throw GradeTooHighException();
 	else if (grade > 150)
 		throw GradeTooLowException();
-	std::cout << PURPLE << getName() << RESET << " constructor called with grade " << PURPLE << getGrade() << RESET << "." << std::endl;
+	std::cout << CYAN << "- " << getName() << " constructor called with grade " << getGrade() << " -" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
 	: _name(other._name), _grade(other._grade)
 {
-	std::cout << ROSE << getName() << RESET << "copy constructor called with grade " << ROSE << getGrade() << RESET << "." << std::endl;
+	std::cout << ROSE << "- " << getName() << RESET << " copy constructor called with grade " << ROSE << getGrade() << " -" << RESET <<  std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
@@ -41,13 +41,13 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	{
 		this->_grade = other._grade;
 	}
-	std::cout << PINK << getName() << RESET << " copy assignment operator called with grade " << PINK << getGrade() << RESET << "." << std::endl;
+	std::cout << ROSE << "- " << getName() << RESET << " copy assignment operator called with grade " << ROSE << getGrade() << " -" << RESET << std::endl;
 	return *this;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << RED << getName() << RESET << " destructor called." << std::endl;
+	std::cout << RED << "- " << getName() << " destructor called -" << RESET << std::endl;
 }
 
 std::string Bureaucrat::getName() const
@@ -55,43 +55,40 @@ std::string Bureaucrat::getName() const
 	return _name;
 }
 
-int			Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return _grade;
 }
 
-void	Bureaucrat::incrementGrade()
+void Bureaucrat::incrementGrade()
 {
-	std::cout << "Calling increment function... " << std::endl;
+	std::cout << DARK_GRAY << "Calling increment function for " << LIGHT_GREEN << getName() << RESET << std::endl;
 	if (_grade - 1 < 1)
 		throw GradeTooHighException();
 	_grade--;
-	std::cout << "Increment done." << std::endl;
+	std::cout << LIGHT_GREEN << "- Increment done for " << getName() << "! -" << RESET << std::endl;
 }
 
-void	Bureaucrat::decrementGrade()
+void Bureaucrat::decrementGrade()
 {
-	std::cout << "Calling decrement function... " << std::endl;
+	std::cout << DARK_GRAY << "Calling decrement function for " << LIGHT_RED << getName() << RESET << std::endl;
 	if (_grade + 1 > 150)
 		throw GradeTooLowException();
-	std::cout << "Decrement done!" << std::endl;
 	_grade++;
+	std::cout << LIGHT_RED << "- Decrement done for " << getName() << "! -" << RESET << std::endl;
 }
 
-void	Bureaucrat::signForm(AForm &form)
+void Bureaucrat::signForm(AForm &form)
 {
-	if (form.isSigned())
-		std::cout << getName() << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
-	else if (_grade > form.getSignGrade())
-		std::cout << getName() << " cannot sign " << form.getName() << " because their grade is too low." << std::endl;
-	else
-	{
+	try {
 		form.beSigned(*this);
-		std::cout << getName() << " signs " << form.getName() << "." << std::endl;
+		std::cout << getName() << LIGHT_GREEN << " signs " << RESET << form.getName() << "." << std::endl;
+	} catch (std::exception& e) {
+		std::cout << getName() << LIGHT_RED << " cannot sign " << RESET << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
-void	Bureaucrat::executeForm(AForm const & form)
+void Bureaucrat::executeForm(AForm const & form)
 {
 	try
 	{
@@ -100,22 +97,26 @@ void	Bureaucrat::executeForm(AForm const & form)
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << *this << " coudn't execute " << form.getName() << " because " << e.what() << std::endl;
+		std::cerr << getName() << LIGHT_RED << " couldn't execute " << RESET << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return RED "Grade too high!" RESET;
+	return RED "Bureaucrat grade is too high!" RESET;
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return RED "Grade too low!" RESET;
+	return RED "Bureaucrat grade is too low!" RESET;
 }
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat& other)
 {
-	out << GREEN << other.getName() << RESET << ", bureaucrat grade: " << GREEN << other.getGrade() << RESET;
+	out << "\n------------------------------------------------------------\n"
+		<< UNDERLINE << BOLD << "\t\t\tBureaucrat Details:\n" << RESET
+		<< "  Name: " << GREEN << other.getName() << RESET << "\n"
+		<< "  Grade: " << GREEN << other.getGrade() << RESET << "\n"
+		<< "------------------------------------------------------------\n";
 	return out;
 }
