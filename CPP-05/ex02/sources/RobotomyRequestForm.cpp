@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 08:23:35 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/12 11:07:17 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/13 13:32:24 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ RobotomyRequestForm::RobotomyRequestForm()
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-	: AForm("RobotomyRequestFormDefault", 72, 45), target(target)
+	: AForm("RobotomyRequestForm", 72, 45), target(target)
 {
 	srand(time(0));
 }
@@ -49,8 +49,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const &  executor) const
 	if (!isSigned())
 		throw AForm::FormNotSignedExeption();
 	if (executor.getGrade() > getSignGrade())
-		throw AForm::GradeTooLowException();
-	std::cout << DARK_BLUE << "* Drilling noises *" << RESET << std::endl;
+		throw Bureaucrat::GradeTooLowException();
+	std::cout << ITALIC << ROSE << "\n* Drilling noises *" << RESET << std::endl;
 	if (rand() % 2)
 		std::cout << PURPLE << target << RESET << " has been romotomized successfully!" << std::endl;
 	else
