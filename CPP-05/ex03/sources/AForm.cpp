@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 15:24:10 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/16 08:18:20 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:52:08 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ bool	AForm::isSigned() const
 void AForm::beSigned(Bureaucrat& b)
 {
 	if (b.getGrade() > _gradeToSign)
-		throw Bureaucrat::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else if (_isSigned)
 		throw AForm::AlreadySignedException();
 	_isSigned = true;

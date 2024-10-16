@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/16 18:02:30 by lebarbos          #+#    #+#              #
+#    Updated: 2024/10/16 18:02:45 by lebarbos         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 
 NAME = Forms
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98 -fsanitize=address
+FLAGS = -Werror -Wextra -Wall -std=c++98 #-fsanitize=address
 
 # Diretórios
 SRC_DIR = sources

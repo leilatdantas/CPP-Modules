@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/28 09:37:00 by lebarbos          #+#    #+#              #
-#    Updated: 2024/09/29 14:23:07 by lebarbos         ###   ########.fr        #
+#    Updated: 2024/10/16 18:02:03 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = Bureaucrat
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98 -fsanitize=address
+FLAGS = -Werror -Wextra -Wall -std=c++98 #-fsanitize=address
 
 # Diretórios
 SRC_DIR = sources

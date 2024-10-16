@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:07:50 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 14:14:04 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:58:28 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
+#include <cstring>
 #include <string> 
 
 class Intern

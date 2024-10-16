@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:02:35 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 15:16:23 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:06:43 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 {
     Intern someRandomIntern;
 
-    AForm* form1 = someRandomIntern.makeForm("Shrubbery CREATION", "Garden");
+    AForm* form1 = someRandomIntern.makeForm("shrubbery creation", "Garden");
     AForm* form2 = someRandomIntern.makeForm("presidential pardon", "Alice");
     AForm* form3 = someRandomIntern.makeForm("robotomy request", "Bob");
 

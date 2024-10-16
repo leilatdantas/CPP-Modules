@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:48:46 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 15:16:06 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:08:02 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ AForm*	Intern::newRobotomy(std::string target)
 	return (new RobotomyRequestForm(target));
 }
 
-AForm*	Intern::makeForm(std::string form, std::string target)
+AForm* Intern::makeForm(std::string form, std::string target)
 {
-	std::string s[3] = {"Shrubbery Creation", "Presidential Pardon", "Robotomy Request"};
+	std::string s[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
 	AForm* (Intern::*p[3])(std::string) = {&Intern::newShrubbery, &Intern::newPresidential, &Intern::newRobotomy};
 	int i = 0;
-	while(i < 4 && strcasecmp(s[i].c_str(), form.c_str()) != 0)
+	while(i < 3 && s[i] != form) // Changed the loop condition to i < 3
 		i++;
 	if(i < 3)
 	{

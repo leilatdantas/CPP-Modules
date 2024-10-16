@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 08:30:10 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 13:34:00 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:55:22 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	if (!isSigned())
 		throw AForm::FormNotSignedExeption();
 	if (executor.getGrade() > getExecuteGrade())
-		throw Bureaucrat::GradeTooLowException();
-	std::cout << DARK_BLUE << target << RESET << " has been pardoned by Lula da Silva." << std::endl;
+		throw AForm::GradeTooLowException();
+	std::cout << BLUE << target << RESET << " has been pardoned by Lula da Silva." << std::endl;
 }
