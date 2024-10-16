@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 15:24:10 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 14:38:18 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/16 08:26:43 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ void AForm::beSigned(Bureaucrat& b)
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return DARK_GREEN "AForm grade is too high!" RESET;
+	return DARK_CYAN "Grade is too high!" RESET;
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return DARK_RED "AForm grade is too low!" RESET;
+	return ORANGE "Grade is too low!" RESET;
 }
 
 const char* AForm::AlreadySignedException::what() const throw()
@@ -110,7 +110,11 @@ std::ostream& operator<<(std::ostream &out, AForm& other)
 		<< "  Name: " << PURPLE << other.getName() << RESET << "\n"
 		<< "  Grade required to sign: " << PURPLE << other.getSignGrade() << RESET << "\n"
 		<< "  Grade required to execute: " << PURPLE << other.getExecuteGrade() << RESET << "\n"
-		<< "  Signed: " << (other.isSigned() ? LIGHT_GREEN "Yes" RESET : LIGHT_RED "No" RESET) << "\n"
-		<< "------------------------------------------------------------\n";
+		<< "  Signed: ";
+	if (other.isSigned())
+		out << LIGHT_GREEN "Yes" RESET;
+	else
+		out << LIGHT_RED "No" RESET;
+	out << "\n------------------------------------------------------------\n";
 	return out;
 }

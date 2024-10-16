@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:27:39 by lebarbos          #+#    #+#             */
-/*   Updated: 2024/10/13 12:24:55 by lebarbos         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:07:13 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 std::ostream& operator<<(std::ostream &out, Bureaucrat& other)
 {
 	out << "\n------------------------------------------------------------\n"
-		<< UNDERLINE << BOLD << "\t\t\tBureaucrat Details:\n" << RESET
+		<< "\t\t\t " << UNDERLINE << BOLD <<  "Bureaucrat Details:\n" << RESET
 		<< "  Name: " << GREEN << other.getName() << RESET << "\n"
 		<< "  Grade: " << GREEN << other.getGrade() << RESET << "\n"
 		<< "------------------------------------------------------------\n";

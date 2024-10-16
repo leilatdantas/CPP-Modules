@@ -2,7 +2,7 @@
 NAME = Forms
 
 CC = c++
-FLAGS = -Werror -Wextra -Wall -std=c++98
+FLAGS = -Werror -Wextra -Wall -std=c++98 -fsanitize=address
 
 # Diretórios
 SRC_DIR = sources
