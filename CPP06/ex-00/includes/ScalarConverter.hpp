@@ -39,8 +39,8 @@ private:
 	static void convertChar(const std::string &str);
 	static void convertInt(const std::string &str);
 	static void convertFloat(const std::string &str);
-	// static void convertDouble(const std::string &str);
-	// static void convertSpecial(const std::string &str);
+	static void convertDouble(const std::string &str);
+	static void convertSpecial(const std::string &str);
 	
 };
 
