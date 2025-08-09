@@ -28,7 +28,6 @@ int main() {
 	std::cout << "=== Serializing pointer ===" << std::endl;
 	uintptr_t serialized = Serializer::serialize(&originalData);
 	std::cout << "Serialized value (uintptr_t): " << serialized << std::endl;
-	std::cout << "Serialized value (hex): 0x" << std::hex << serialized << std::dec << std::endl;
 	std::cout << std::endl;
 	
 	// Test deserialization
