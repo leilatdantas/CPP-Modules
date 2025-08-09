@@ -6,44 +6,44 @@
 
 void testBasicOperations()
 {
-	std::cout << "=== Teste Operações Básicas ===" << std::endl;
+	std::cout << "=== Basic Operations Test ===" << std::endl;
 	
 	MutantStack<int> mstack;
 	
-	std::cout << "Stack vazia? " << (mstack.empty() ? "Sim" : "Não") << std::endl;
-	std::cout << "Tamanho: " << mstack.size() << std::endl;
+	std::cout << "Is stack empty? " << (mstack.empty() ? "Yes" : "No") << std::endl;
+	std::cout << "Size: " << mstack.size() << std::endl;
 	
 	mstack.push(5);
 	mstack.push(17);
 	
-	std::cout << "Após adicionar 5 e 17:" << std::endl;
-	std::cout << "Topo: " << mstack.top() << std::endl;
-	std::cout << "Tamanho: " << mstack.size() << std::endl;
+	std::cout << "After pushing 5 and 17:" << std::endl;
+	std::cout << "Top: " << mstack.top() << std::endl;
+	std::cout << "Size: " << mstack.size() << std::endl;
 	
 	mstack.pop();
 	
-	std::cout << "Após pop():" << std::endl;
-	std::cout << "Tamanho: " << mstack.size() << std::endl;
-	std::cout << "Topo: " << mstack.top() << std::endl;
+	std::cout << "After pop():" << std::endl;
+	std::cout << "Size: " << mstack.size() << std::endl;
+	std::cout << "Top: " << mstack.top() << std::endl;
 	
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
 	mstack.push(0);
 	
-	std::cout << "Após adicionar 3, 5, 737, 0:" << std::endl;
-	std::cout << "Tamanho: " << mstack.size() << std::endl;
-	std::cout << "Topo: " << mstack.top() << std::endl;
+	std::cout << "After pushing 3, 5, 737, 0:" << std::endl;
+	std::cout << "Size: " << mstack.size() << std::endl;
+	std::cout << "Top: " << mstack.top() << std::endl;
 	std::cout << std::endl;
 }
 
 void testIterators()
 {
-	std::cout << "=== Teste Iteradores ===" << std::endl;
+	std::cout << "=== Iterators Test ===" << std::endl;
 	
 	MutantStack<int> mstack;
 	
-	// Adicionar elementos
+	// Add elements
 	mstack.push(5);
 	mstack.push(17);
 	mstack.push(3);
@@ -51,7 +51,7 @@ void testIterators()
 	mstack.push(737);
 	mstack.push(0);
 	
-	std::cout << "Stack contents (iterador normal): ";
+	std::cout << "Stack contents (normal iterator): ";
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 	
@@ -64,7 +64,7 @@ void testIterators()
 	}
 	std::cout << std::endl;
 	
-	std::cout << "Stack contents (iterador reverso): ";
+	std::cout << "Stack contents (reverse iterator): ";
 	for (MutantStack<int>::reverse_iterator rit = mstack.rbegin(); rit != mstack.rend(); ++rit)
 	{
 		std::cout << *rit << " ";
@@ -75,7 +75,7 @@ void testIterators()
 
 void testWithList()
 {
-	std::cout << "=== Comparação com std::list ===" << std::endl;
+	std::cout << "=== Comparison with std::list ===" << std::endl;
 	
 	std::list<int> lst;
 	
@@ -99,14 +99,14 @@ void testWithList()
 
 void testCopyAndAssignment()
 {
-	std::cout << "=== Teste Cópia e Atribuição ===" << std::endl;
+	std::cout << "=== Copy and Assignment Test ===" << std::endl;
 	
 	MutantStack<int> original;
 	original.push(1);
 	original.push(2);
 	original.push(3);
 	
-	// Teste construtor de cópia
+	// Test copy constructor
 	MutantStack<int> copied(original);
 	
 	std::cout << "Original: ";
@@ -114,29 +114,29 @@ void testCopyAndAssignment()
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	std::cout << "Cópia: ";
+	std::cout << "Copy: ";
 	for (MutantStack<int>::iterator it = copied.begin(); it != copied.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	// Teste operador de atribuição
+	// Test assignment operator
 	MutantStack<int> assigned;
 	assigned = original;
 	
-	std::cout << "Atribuída: ";
+	std::cout << "Assigned: ";
 	for (MutantStack<int>::iterator it = assigned.begin(); it != assigned.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	// Modificar original para verificar independência
+	// Modify original to check independence
 	original.push(4);
 	
-	std::cout << "Original após adicionar 4: ";
+	std::cout << "Original after pushing 4: ";
 	for (MutantStack<int>::iterator it = original.begin(); it != original.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	std::cout << "Cópia ainda: ";
+	std::cout << "Copy still: ";
 	for (MutantStack<int>::iterator it = copied.begin(); it != copied.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
@@ -145,7 +145,7 @@ void testCopyAndAssignment()
 
 void testAlgorithms()
 {
-	std::cout << "=== Teste com Algoritmos STL ===" << std::endl;
+	std::cout << "=== STL Algorithms Test ===" << std::endl;
 	
 	MutantStack<int> mstack;
 	mstack.push(3);
@@ -154,30 +154,30 @@ void testAlgorithms()
 	mstack.push(1);
 	mstack.push(5);
 	
-	std::cout << "Antes da ordenação: ";
+	std::cout << "Before sorting: ";
 	for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	// Ordenar usando algoritmo STL
+	// Sort using STL algorithm
 	std::sort(mstack.begin(), mstack.end());
 	
-	std::cout << "Após ordenação: ";
+	std::cout << "After sorting: ";
 	for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	// Encontrar elemento
+	// Find element
 	MutantStack<int>::iterator found = std::find(mstack.begin(), mstack.end(), 4);
 	if (found != mstack.end())
-		std::cout << "Elemento 4 encontrado!" << std::endl;
+		std::cout << "Element 4 found!" << std::endl;
 	
 	std::cout << std::endl;
 }
 
 void testWithStrings()
 {
-	std::cout << "=== Teste com Strings ===" << std::endl;
+	std::cout << "=== String Test ===" << std::endl;
 	
 	MutantStack<std::string> strStack;
 	
@@ -192,7 +192,7 @@ void testWithStrings()
 		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	std::cout << "Topo: " << strStack.top() << std::endl;
+	std::cout << "Top: " << strStack.top() << std::endl;
 	std::cout << std::endl;
 }
 

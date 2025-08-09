@@ -14,20 +14,20 @@ private:
 	unsigned int _maxSize;
 	
 public:
-	// Construtores e Destrutor
+	// Constructors and Destructor
 	Span(unsigned int N);
 	Span(const Span& other);
 	~Span();
 	
-	// Operador de atribuição
+	// Assignment operator
 	Span& operator=(const Span& other);
 	
-	// Métodos principais
+	// Main methods
 	void addNumber(int number);
 	int shortestSpan() const;
 	int longestSpan() const;
 	
-	// Método para adicionar range de iteradores
+	// Method to add a range of iterators
 	template<typename Iterator>
 	void addNumbers(Iterator begin, Iterator end)
 	{
@@ -38,11 +38,11 @@ public:
 		_numbers.insert(_numbers.end(), begin, end);
 	}
 	
-	// Getters para debug
+	// Getters for debug
 	unsigned int size() const { return _numbers.size(); }
 	unsigned int maxSize() const { return _maxSize; }
 	
-	// Exceções personalizadas
+	// Custom exceptions
 	class FullContainerException : public std::exception
 	{
 	public:

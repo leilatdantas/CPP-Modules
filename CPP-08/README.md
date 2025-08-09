@@ -1,180 +1,180 @@
 # CPP-08 - Templated Containers, Iterators and Algorithms
 
-Este módulo aprofunda o conhecimento sobre **containers STL**, **iteradores** e **algoritmos**, focando na criação de estruturas de dados customizadas que se integram com o ecosistema STL.
+This module deepens your knowledge of **STL containers**, **iterators**, and **algorithms**, focusing on building custom data structures that integrate with the STL ecosystem.
 
-## 📚 Conceitos Abordados
+## 📚 Covered Concepts
 
 - **STL Containers**: vector, list, deque, stack
 - **STL Iterators**: forward, bidirectional, random access
 - **STL Algorithms**: find, sort, min_element, max_element
-- **Template Specialization**: Adaptando templates para casos específicos
-- **Container Adapters**: Como criar adaptadores de container
-- **Iterator Traits**: Características dos iteradores
+- **Template Specialization**: Adapting templates for specific cases
+- **Container Adapters**: How to create container adapters
+- **Iterator Traits**: Iterator characteristics
 
-## 🎯 Exercícios
+## 🎯 Exercises
 
 ### Ex00 - Easy find
-**Arquivos**: `easyfind.hpp`, `main.cpp`
+**Files**: `easyfind.hpp`, `main.cpp`
 
-Implementa uma função template que encontra um valor inteiro em qualquer container STL:
+Implements a template function that finds an integer value in any STL container:
 
 ```cpp
 template<typename T>
 typename T::iterator easyfind(T& container, int value);
 ```
 
-**Características**:
-- ✅ Funciona com vector, list, deque e outros containers
-- ✅ Usa `std::find()` internamente
-- ✅ Lança exceção se elemento não encontrado
-- ✅ Suporte a containers const e não-const
-- ✅ Retorna iterador para o elemento encontrado
+**Features**:
+- ✅ Works with vector, list, deque, and other containers
+- ✅ Uses `std::find()` internally
+- ✅ Throws exception if element not found
+- ✅ Supports const and non-const containers
+- ✅ Returns iterator to the found element
 
-**Funcionalidades**:
-- Busca em diferentes tipos de container
-- Tratamento de exceções personalizado
-- Teste de performance com containers grandes
+**Functionality**:
+- Search in different container types
+- Custom exception handling
+- Performance testing with large containers
 
 ### Ex01 - Span
-**Arquivos**: `Span.hpp`, `Span.cpp`, `main.cpp`
+**Files**: `Span.hpp`, `Span.cpp`, `main.cpp`
 
-Implementa uma classe que armazena N inteiros e pode calcular spans (diferenças):
+Implements a class that stores N integers and can calculate spans (differences):
 
 ```cpp
 class Span
 {
 public:
-    Span(unsigned int N);
-    void addNumber(int number);
-    int shortestSpan() const;
-    int longestSpan() const;
-    
-    template<typename Iterator>
-    void addNumbers(Iterator begin, Iterator end);
+	Span(unsigned int N);
+	void addNumber(int number);
+	int shortestSpan() const;
+	int longestSpan() const;
+	
+	template<typename Iterator>
+	void addNumbers(Iterator begin, Iterator end);
 };
 ```
 
-**Características**:
-- ✅ Capacidade limitada definida no construtor
-- ✅ Adicionar números individuais ou por range
-- ✅ Calcular menor e maior diferença entre números
-- ✅ Exceções para casos inválidos
-- ✅ Otimização para grandes quantidades de dados
+**Features**:
+- ✅ Limited capacity defined in the constructor
+- ✅ Add numbers individually or by range
+- ✅ Calculate smallest and largest difference between numbers
+- ✅ Exceptions for invalid cases
+- ✅ Optimized for large amounts of data
 
-**Funcionalidades**:
-- Shortest span: menor diferença entre quaisquer dois números
-- Longest span: diferença entre maior e menor número
-- Range insertion: adicionar múltiplos números de uma vez
-- Exception safety: controle rigoroso de erros
+**Functionality**:
+- Shortest span: smallest difference between any two numbers
+- Longest span: difference between largest and smallest number
+- Range insertion: add multiple numbers at once
+- Exception safety: strict error control
 
 ### Ex02 - Mutated abomination
-**Arquivos**: `MutantStack.hpp`, `main.cpp`
+**Files**: `MutantStack.hpp`, `main.cpp`
 
-Cria um stack que também pode ser iterado, combinando std::stack com iteradores:
+Creates a stack that can also be iterated, combining std::stack with iterators:
 
 ```cpp
 template<typename T, typename Container = std::deque<T>>
 class MutantStack : public std::stack<T, Container>
 {
 public:
-    typedef typename Container::iterator iterator;
-    
-    iterator begin();
-    iterator end();
-    // ... outros tipos de iteradores
+	typedef typename Container::iterator iterator;
+	
+	iterator begin();
+	iterator end();
+	// ... other iterator types
 };
 ```
 
-**Características**:
-- ✅ Herda de std::stack mantendo funcionalidades LIFO
-- ✅ Adiciona iteradores para traversal
-- ✅ Suporte a iteradores forward e reverse
-- ✅ Compatível com algoritmos STL
-- ✅ Container subjacente configurável
+**Features**:
+- ✅ Inherits from std::stack, keeps LIFO functionality
+- ✅ Adds iterators for traversal
+- ✅ Supports forward and reverse iterators
+- ✅ Compatible with STL algorithms
+- ✅ Configurable underlying container
 
-**Funcionalidades**:
-- Operações de stack normais (push, pop, top)
-- Iteração através dos elementos
-- Uso com algoritmos STL (sort, find, etc.)
-- Diferentes tipos de iteradores (const, reverse)
+**Functionality**:
+- Normal stack operations (push, pop, top)
+- Iteration through elements
+- Use with STL algorithms (sort, find, etc.)
+- Different iterator types (const, reverse)
 
-## 🔧 Compilação e Teste
+## 🔧 Compilation and Testing
 
-### Compilar todos os exercícios:
+### Compile all exercises:
 ```bash
 make
 ```
 
-### Compilar exercício específico:
+### Compile a specific exercise:
 ```bash
-make -C ex00  # ou ex01, ex02
+make -C ex00  # or ex01, ex02
 ```
 
-### Executar testes:
+### Run tests:
 ```bash
 make test
 ```
 
-### Limpar arquivos:
+### Clean files:
 ```bash
-make clean    # Remove objetos
-make fclean   # Remove executáveis
-make re       # Recompila tudo
+make clean    # Remove object files
+make fclean   # Remove executables
+make re       # Rebuild everything
 ```
 
-## 📝 Saída Esperada
+## 📝 Expected Output
 
 ### Ex00 - easyfind:
 ```
-=== Teste com std::vector ===
+=== Test with std::vector ===
 Vector: 1 2 3 4 5 6 7 8 9 10
-Elemento 5 encontrado na posição: 4
-Valor encontrado: 5
-Elemento 15: Element not found in container
+Element 5 found at position: 4
+Value found: 5
+Element 15: Element not found in container
 
-=== Teste com std::list ===
+=== Test with std::list ===
 List: 10 9 8 7 6 5 4 3 2 1
-Elemento 3 encontrado
-Valor encontrado: 3
+Element 3 found
+Value found: 3
 ```
 
 ### Ex01 - span:
 ```
-=== Teste Básico ===
-Números adicionados: 6, 3, 17, 9, 11
+=== Basic Test ===
+Numbers added: 6, 3, 17, 9, 11
 Shortest span: 2
 Longest span: 14
 
-=== Teste de Exceções ===
-Tentando calcular span com container vazio...
-Exceção capturada: Cannot calculate span: need at least 2 numbers
+=== Exception Test ===
+Trying to calculate span with empty container...
+Exception caught: Cannot calculate span: need at least 2 numbers
 ```
 
 ### Ex02 - mutantstack:
 ```
-=== Teste Operações Básicas ===
-Stack vazia? Sim
-Tamanho: 0
-Após adicionar 5 e 17:
-Topo: 17
-Tamanho: 2
+=== Basic Operations Test ===
+Stack empty? Yes
+Size: 0
+After adding 5 and 17:
+Top: 17
+Size: 2
 
-=== Teste Iteradores ===
-Stack contents (iterador normal): 5 17 3 5 737 0
-Stack contents (iterador reverso): 0 737 5 3 17 5
+=== Iterator Test ===
+Stack contents (normal iterator): 5 17 3 5 737 0
+Stack contents (reverse iterator): 0 737 5 3 17 5
 ```
 
-## 💡 Conceitos Importantes
+## 💡 Key Concepts
 
 ### Iterator Categories
-- **Input Iterator**: Leitura sequencial única
-- **Output Iterator**: Escrita sequencial única  
-- **Forward Iterator**: Leitura/escrita sequencial múltipla
-- **Bidirectional Iterator**: Como forward, mas vai em ambas direções
-- **Random Access Iterator**: Acesso direto a qualquer posição
+- **Input Iterator**: Single-pass sequential read
+- **Output Iterator**: Single-pass sequential write  
+- **Forward Iterator**: Multi-pass sequential read/write
+- **Bidirectional Iterator**: Like forward, but can go both directions
+- **Random Access Iterator**: Direct access to any position
 
 ### STL Integration
-Os containers customizados seguem convenções STL:
+Custom containers follow STL conventions:
 ```cpp
 typedef typename Container::iterator iterator;
 typedef typename Container::value_type value_type;
@@ -182,47 +182,48 @@ typedef typename Container::size_type size_type;
 ```
 
 ### Exception Safety
-- **Basic Guarantee**: Objeto fica em estado válido após exceção
-- **Strong Guarantee**: Operação é atomic (sucesso total ou rollback)
-- **No-throw Guarantee**: Operação nunca lança exceção
+- **Basic Guarantee**: Object remains valid after exception
+- **Strong Guarantee**: Operation is atomic (all or nothing)
+- **No-throw Guarantee**: Operation never throws
 
 ### Template Metaprogramming
 ```cpp
 template<typename Iterator>
 void addNumbers(Iterator begin, Iterator end)
 {
-    // std::distance calcula automaticamente o número de elementos
-    typename std::iterator_traits<Iterator>::difference_type distance;
-    distance = std::distance(begin, end);
+	// std::distance automatically calculates the number of elements
+	typename std::iterator_traits<Iterator>::difference_type distance;
+	distance = std::distance(begin, end);
 }
 ```
 
-## 🔍 Detalhes de Implementação
+## 🔍 Implementation Details
 
 ### Performance Considerations
-- **Ex00**: O(n) para busca linear em containers
-- **Ex01**: O(n log n) para shortest span (devido ao sort)
-- **Ex02**: O(1) para operações de stack, O(n) para iteração
+- **Ex00**: O(n) for linear search in containers
+- **Ex01**: O(n log n) for shortest span (due to sort)
+- **Ex02**: O(1) for stack operations, O(n) for iteration
 
 ### Memory Management
-- Uso de containers STL para gerenciamento automático
-- RAII em todas as classes
-- Exception safety em operações críticas
+- Uses STL containers for automatic management
+- RAII in all classes
+- Exception safety in critical operations
 
 ### Algorithm Compatibility
-- MutantStack funciona com std::sort, std::find, etc.
-- Iteradores seguem padrões STL
-- Compatible com range-based for loops (C++11+)
+- MutantStack works with std::sort, std::find, etc.
+- Iterators follow STL standards
+- Compatible with range-based for loops (C++11+)
 
 ### Template Flexibility
-- easyfind funciona com qualquer container que tenha iteradores
-- Span aceita qualquer tipo de iterador
-- MutantStack permite diferentes containers subjacentes
+- easyfind works with any container that has iterators
+- Span accepts any iterator type
+- MutantStack allows different underlying containers
 
-## 🚀 Extensões Possíveis
+## 🚀 Possible Extensions
 
-- **Ex00**: Busca binária para containers ordenados
-- **Ex01**: Span para tipos diferentes de int
+- **Ex00**: Binary search for sorted containers
+- **Ex01**: Span for types other than int
 - **Ex02**: MutantQueue, MutantPriorityQueue
 
-Este módulo prepara para conceitos avançados como generic programming e metaprogramming, essenciais para C++ moderno e desenvolvimento de bibliotecas.
+This module prepares you for advanced concepts like generic programming and metaprogramming, essential for modern C++ and library development.
+

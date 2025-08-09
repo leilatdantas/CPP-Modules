@@ -1,22 +1,22 @@
 #include "Span.hpp"
 
-// Construtor
+// Constructor
 Span::Span(unsigned int N) : _maxSize(N)
 {
 	_numbers.reserve(N);
 }
 
-// Construtor de cópia
+// Copy constructor
 Span::Span(const Span& other) : _numbers(other._numbers), _maxSize(other._maxSize)
 {
 }
 
-// Destrutor
+// Destructor
 Span::~Span()
 {
 }
 
-// Operador de atribuição
+// Assignment operator
 Span& Span::operator=(const Span& other)
 {
 	if (this != &other)
@@ -27,7 +27,7 @@ Span& Span::operator=(const Span& other)
 	return *this;
 }
 
-// Adicionar um número
+// Add a number
 void Span::addNumber(int number)
 {
 	if (_numbers.size() >= _maxSize)
@@ -36,7 +36,7 @@ void Span::addNumber(int number)
 	_numbers.push_back(number);
 }
 
-// Encontrar o menor span (diferença)
+// Find the shortest span (difference)
 int Span::shortestSpan() const
 {
 	if (_numbers.size() < 2)
@@ -56,7 +56,7 @@ int Span::shortestSpan() const
 	return minSpan;
 }
 
-// Encontrar o maior span (diferença)
+// Find the longest span (difference)
 int Span::longestSpan() const
 {
 	if (_numbers.size() < 2)

@@ -6,9 +6,9 @@
 
 int main()
 {
-	std::cout << "=== Teste com std::vector ===" << std::endl;
+	std::cout << "=== Test with std::vector ===" << std::endl;
 	
-	// Teste com vector
+	// Test with vector
 	std::vector<int> vec;
 	for (int i = 1; i <= 10; i++)
 		vec.push_back(i);
@@ -21,27 +21,27 @@ int main()
 	try
 	{
 		std::vector<int>::iterator found = easyfind(vec, 5);
-		std::cout << "Elemento 5 encontrado na posição: " << std::distance(vec.begin(), found) << std::endl;
-		std::cout << "Valor encontrado: " << *found << std::endl;
+		std::cout << "Element 5 found at position: " << std::distance(vec.begin(), found) << std::endl;
+		std::cout << "Value found: " << *found << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
 	try
 	{
 		easyfind(vec, 15);
-		std::cout << "Elemento 15 encontrado" << std::endl;
+		std::cout << "Element 15 found" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Elemento 15: " << e.what() << std::endl;
+		std::cout << "Element 15: " << e.what() << std::endl;
 	}
 	
-	std::cout << "\n=== Teste com std::list ===" << std::endl;
+	std::cout << "\n=== Test with std::list ===" << std::endl;
 	
-	// Teste com list
+	// Test with list
 	std::list<int> lst;
 	for (int i = 10; i >= 1; i--)
 		lst.push_back(i);
@@ -54,17 +54,17 @@ int main()
 	try
 	{
 		std::list<int>::iterator found = easyfind(lst, 3);
-		std::cout << "Elemento 3 encontrado" << std::endl;
-		std::cout << "Valor encontrado: " << *found << std::endl;
+		std::cout << "Element 3 found" << std::endl;
+		std::cout << "Value found: " << *found << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
-	std::cout << "\n=== Teste com std::deque ===" << std::endl;
+	std::cout << "\n=== Test with std::deque ===" << std::endl;
 	
-	// Teste com deque
+	// Test with deque
 	std::deque<int> deq;
 	deq.push_back(42);
 	deq.push_back(21);
@@ -79,36 +79,36 @@ int main()
 	try
 	{
 		std::deque<int>::iterator found = easyfind(deq, 21);
-		std::cout << "Elemento 21 encontrado" << std::endl;
-		std::cout << "Valor encontrado: " << *found << std::endl;
+		std::cout << "Element 21 found" << std::endl;
+		std::cout << "Value found: " << *found << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
 	try
 	{
 		easyfind(deq, 100);
-		std::cout << "Elemento 100 encontrado" << std::endl;
+		std::cout << "Element 100 found" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Elemento 100: " << e.what() << std::endl;
+		std::cout << "Element 100: " << e.what() << std::endl;
 	}
 	
-	std::cout << "\n=== Teste com container const ===" << std::endl;
+	std::cout << "\n=== Test with const container ===" << std::endl;
 	
 	const std::vector<int> constVec(vec);
 	try
 	{
 		std::vector<int>::const_iterator found = easyfind(constVec, 8);
-		std::cout << "Elemento 8 encontrado em container const" << std::endl;
-		std::cout << "Valor encontrado: " << *found << std::endl;
+		std::cout << "Element 8 found in const container" << std::endl;
+		std::cout << "Value found: " << *found << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Erro: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
 	return 0;
