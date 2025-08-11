@@ -1,0 +1,16 @@
+# Ignore object files
+*.o
+*.obj
+
+serializer
+convert
+identify
+whatever
+iter
+array
+easyfind
+span
+mutantstack
+btc
+RPN
+PmergeMe

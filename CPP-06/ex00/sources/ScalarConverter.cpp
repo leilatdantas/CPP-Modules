@@ -18,252 +18,319 @@ ScalarConverter::ScalarConverter(const ScalarConverter &other) { (void)(other); 
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
 {
-	(void)other;
-	return *this;
+	(void)(other);
+	return (*this);
 }
 
 ScalarConverter::~ScalarConverter() {}
 
-// ************************************************************************** //
 
-TYPE ScalarConverter::getType(const std::string &str)
+static bool isChar(std::string str)
 {
-	static std::string specialLiterals[] = {"+inff", "-inff", "nanf", "+inf", "-inf", "nan"};
-	static TYPE specialTypes[] = {_P_INFF, _N_INFF, _NANF, _P_INF, _N_INF, _NAN};
+	
+	if (str.size() == 1 && std::isprint(str[0]) \
+		&&( str[0] < '0' || str[0] > '9'))
+		return (true);
+	else if (str.size() == 3 \
+		&& str[0] == '\'' && str[2] == '\'' \
+		&& std::isprint(str[1]))
+		return (true);
+	return (false);
+}
 
-	for (size_t i = 0; i < 6; i++)
-	{
-		if (str == specialLiterals[i])
-			return specialTypes[i];
-	}
-
-	if ((str.length() == 3 && str[0] == '\'' && str[2] == '\'' && std::isprint(str[1])) ||
-		(str.length() == 1 && std::isprint(str[0]) && !std::isdigit(str[0])))
-	{
-		return _CHAR;
-	}
-
-	int dots = 0, fCount = 0;
-
+static bool	isInteger(std::string str)
+{
 	for (size_t i = 0; i < str.length(); i++)
 	{
 		if ((str[i] == '+' || str[i] == '-') && i == 0)
+			continue ;
+		if (str[i] < '0' || str[i] > '9')
+			return (false);
+	}
+	return (true);
+}
+
+static bool isFloat(std::string str)
+{
+	int	dots = 0, fs = 0, numbers = 0;
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		if ((str[i] == '+' || str[i] == '-') && i == 0)
 			continue;
-		if (str[i] == '.')
-			dots++;
+		else if (std::isdigit(str[i]))
+			numbers++;
 		else if (str[i] == 'f')
-			fCount++;
-		else if (!std::isdigit(str[i]))
-			return INVALID;
+			fs++;
+		else if (str[i] == '.')
+			dots++;
+		else
+			return (false);
 	}
-
-	if (dots == 0 && fCount == 0)
-		return _INT;
-	if (dots == 1 && fCount == 1 && str.back() == 'f')
-		return _FLOAT;
-	if (dots == 1 && fCount == 0)
-		return _DOUBLE;
-	return INVALID;
-}
-
-void ScalarConverter::convert(const std::string &literal)
-{
-	TYPE type = getType(literal);
-	if (type == INVALID)
+	if (fs == 1 && numbers > 0 && dots < 2)
 	{
-		std::cout << "Error: invalid." << std::endl;
-		return;
+		if (str[str.find('.') + 1] < '0' || str[str.find('.') + 1] > '9')
+			return (false);
+		else
+			return (true);
 	}
-	printConversion(literal, type);
+	return (false);
 }
 
-void ScalarConverter::printConversion(const std::string &input, TYPE type)
+static bool isDouble(std::string str)
 {
-	switch (type)
+	int	dots = 0, numbers = 0;
+	for (size_t i = 0; i < str.size(); i++)
 	{
-	case _CHAR:
-		convertChar(input);
-		break;
-	case _INT:
-		convertInt(input);
-		break;
-	case _FLOAT:
-		convertFloat(input);
-		break;
-	case _DOUBLE:
-		convertDouble(input);
-		break;
-	case _P_INFF:
-	case _N_INFF:
-	case _NANF:
-	case _P_INF:
-	case _N_INF:
-	case _NAN:
-		convertSpecial(input);
-		break;
-	default:
-		std::cout << "Error: Invalid type." << std::endl;
+		if ((str[i] == '+' || str[i] == '-') && i == 0)
+			continue;
+		else if (std::isdigit(str[i]))
+			numbers++;
+		else if (str[i] == '.')
+			dots++;
+		else
+			return (false);
 	}
+	if (numbers > 0 && dots < 2)
+	{
+		if (str[str.find('.') + 1] < '0' || str[str.find('.') + 1] > '9')
+			return (false);
+		else
+			return (true);
+	}
+	return (false);
 }
 
-void ScalarConverter::convertChar(const std::string &str)
+
+static TYPE getType(std::string str)
+{
+	std::string	s_types[] = {"+inff", "-inff", "nanf", "+inf", "-inf", "nan"};
+	TYPE		types[] = {_P_INFF, _N_INFF, _NANF, _P_INF, _N_INF, _NAN};
+	
+	for (size_t i = 0; i < 6; i++)
+	{
+		if (!str.compare(s_types[i]))
+			return (types[i]);
+	}
+	if (isChar(str))
+		return (_CHAR);
+	if (isInteger(str))
+		return (_INT);
+	if (isFloat(str))
+		return (_FLOAT);
+	if (isDouble(str))
+		return (_DOUBLE);
+	return (INVALID);
+}
+
+void doChar(std::string str)
 {
 	char c;
-	if (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
-	{
-		c = str[1];
-	}
+	if (str.size() == 1)
+		c = static_cast<char>(str[0]);
 	else
-	{
-		c = str[0];
-	}
+		c = static_cast<char>(str[1]);
+	std::cout << "Char: " << "'" << c << "'" << std::endl;
+	std::cout << "Int: " << static_cast<int>(c) << std::endl;
+	std::cout << "Float: " << static_cast<float>(c) << ".0f" << std::endl;
+	std::cout << "Double: " << static_cast<double>(c) << ".0" << std::endl;
 
-	std::cout << "char: '" << c << "'" << std::endl;
-	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
 
-void ScalarConverter::convertInt(const std::string &str)
+void doInteger(std::string str)
 {
-	long double num = std::stold(str);
+	long double number = std::strtold(str.c_str(), NULL);
 
-	std::cout << "char: ";
-	if (num < std::numeric_limits<char>::min() || num > std::numeric_limits<char>::max())
-		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(num))
-		std::cout << "Non displayable" << std::endl;
+	std::cout << "Char: ";
+	if (number > std::numeric_limits<char>::max() || number < std::numeric_limits<char>::min() || !std::isprint(number))
+		std::cout << "Non displayable.\n";
 	else
-		std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
-
-	std::cout << "int: ";
-	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
-		std::cout << "overflow" << std::endl;
+		std::cout << "\'" <<  static_cast<char>(number) << "\'" << std::endl;
+	std::cout << "Int: ";
+	if (number > std::numeric_limits<int>::max() || number < std::numeric_limits<int>::min())
+		std::cout << "overflow.\n";
 	else
-		std::cout << static_cast<int>(num) << std::endl;
-	std::cout << "float: ";
-	if (num > std::numeric_limits<float>::max() || num < -(std::numeric_limits<float>::max() + 1))
-		std::cout << "overflow\n";
+		std::cout << static_cast<int>(number) << std::endl;
+		
+	std::cout << "Float: ";
+	if (number > std::numeric_limits<float>::max() || number < -std::numeric_limits<float>::max())
+		std::cout << "overflow.\n";
 	else
 	{
-		if (static_cast<float>(num) <= 999999)
-			std::cout << static_cast<float>(num) << ".0f" << std::endl;
+		if (static_cast<float>(number) <= 999999)
+			std::cout << static_cast<float>(number) << ".0f" << std::endl;
 		else
-			std::cout << static_cast<float>(num) << "f" << std::endl;
+			std::cout << static_cast<float>(number) << "f" << std::endl;
 	}
-
-	std::cout << "double: ";
-	if (num > std::numeric_limits<double>::max() || num < -(std::numeric_limits<double>::max() + 1))
-		std::cout << "overflow\n";
+		
+	std::cout << "Double: ";
+	if (number > std::numeric_limits<double>::max() || number < -std::numeric_limits<double>::max())
+		std::cout << "overflow.\n";
 	else
 	{
-		if (static_cast<double>(num) <= 999999)
-			std::cout << static_cast<double>(num) << ".0" << std::endl;
+		if (static_cast<double>(number) <= 999999)
+			std::cout << static_cast<double>(number) << ".0" << std::endl;
 		else
-			std::cout << static_cast<double>(num) << std::endl;
-	}
+			std::cout << static_cast<double>(number) << std::endl;
+	}	
 }
 
-void ScalarConverter::convertFloat(const std::string &str)
+void doFloat(std::string str)
 {
-	long double num = std::stold(str);
 
-	std::cout << "char: ";
-	if (num < std::numeric_limits<char>::min() || num > std::numeric_limits<char>::max())
-		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(static_cast<int>(num)))
-		std::cout << "Non displayable" << std::endl;
+	long double number = std::strtold(str.c_str(), NULL);
+	float	f_nbr = std::strtof(str.c_str(), NULL);
+
+	std::cout << "Char: ";
+	if (number > std::numeric_limits<char>::max() || number < std::numeric_limits<char>::min() || !std::isprint(number))
+		std::cout << "Non displayable.\n";
 	else
-		std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
-
-	std::cout << "int: ";
-	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
-		std::cout << "overflow" << std::endl;
+		std::cout << "\'" <<  static_cast<char>(f_nbr) << "\'" << std::endl;
+	std::cout << "Int: ";
+	if (number > std::numeric_limits<int>::max() || number < std::numeric_limits<int>::min())
+		std::cout << "overflow.\n";
 	else
-		std::cout << static_cast<int>(num) << std::endl;
-
-	std::cout << "float: ";
-	if (num > std::numeric_limits<float>::max() || num < -(std::numeric_limits<float>::max() + 1))
-		std::cout << "overflow\n";
-	else
-	{
-		if (static_cast<float>(num) <= 999999)
-			std::cout << static_cast<float>(num) << ".0f" << std::endl;
-		else
-			std::cout << static_cast<float>(num) << "f" << std::endl;
-	}
-
-	std::cout << "double: ";
-	if (num > std::numeric_limits<double>::max() || num < -(std::numeric_limits<double>::max() + 1))
-		std::cout << "overflow\n";
+		std::cout << static_cast<int>(f_nbr) << std::endl;
+		
+	std::cout << "Float: ";
+	if (number > std::numeric_limits<float>::max() || number < -std::numeric_limits<float>::max())
+		std::cout << "overflow.\n";
 	else
 	{
-		if (static_cast<double>(num) <= 999999)
-			std::cout << static_cast<double>(num) << ".0" << std::endl;
+		if (f_nbr - static_cast<int>(f_nbr) == 0)
+			std::cout << static_cast<float>(f_nbr) << ".0f" << std::endl;
 		else
-			std::cout << static_cast<double>(num) << std::endl;
+			std::cout << static_cast<float>(f_nbr) << "f" << std::endl;
 	}
+		
+	std::cout << "Double: ";
+	if (number > std::numeric_limits<double>::max() || number < -std::numeric_limits<double>::max())
+		std::cout << "overflow.\n";
+	else
+	{
+		if (static_cast<double>(f_nbr) -  static_cast<int>(f_nbr) == 0)
+			std::cout << static_cast<double>(f_nbr) << ".0" << std::endl;
+		else
+			std::cout << static_cast<double>(f_nbr) << std::endl;
+	}	
 }
 
-void ScalarConverter::convertDouble(const std::string &str)
+void doDouble(std::string str)
 {
-	long double num = std::stold(str);
 
-	std::cout << "char: ";
-	if (num < std::numeric_limits<char>::min() || num > std::numeric_limits<char>::max())
-		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(static_cast<int>(num)))
-		std::cout << "Non displayable" << std::endl;
+	long double number = std::strtold(str.c_str(), NULL);
+	double	d_nbr = std::strtod(str.c_str(), NULL);
+
+	std::cout << "Char: ";
+	if (number > std::numeric_limits<char>::max() || number < std::numeric_limits<char>::min() || !std::isprint(number))
+		std::cout << "Non displayable.\n";
 	else
-		std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
-
-	std::cout << "int: ";
-	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
-		std::cout << "overflow" << std::endl;
+		std::cout << "\'" <<  static_cast<char>(d_nbr) << "\'" << std::endl;
+	std::cout << "Int: ";
+	if (number > std::numeric_limits<int>::max() || number < std::numeric_limits<int>::min())
+		std::cout << "overflow.\n";
 	else
-		std::cout << static_cast<int>(num) << std::endl;
-
-	std::cout << "float: ";
-	if (num > std::numeric_limits<float>::max() || num < -(std::numeric_limits<float>::max() + 1))
-		std::cout << "overflow\n";
-	else
-	{
-		if (static_cast<float>(num) <= 999999)
-			std::cout << static_cast<float>(num) << ".0f" << std::endl;
-		else
-			std::cout << static_cast<float>(num) << "f" << std::endl;
-	}
-
-	std::cout << "double: ";
-	if (num > std::numeric_limits<double>::max() || num < -(std::numeric_limits<double>::max() + 1))
-		std::cout << "overflow\n";
+		std::cout << static_cast<int>(d_nbr) << std::endl;
+		
+	std::cout << "Float: ";
+	if (number > std::numeric_limits<float>::max() || number < -std::numeric_limits<float>::max())
+		std::cout << "overflow.\n";
 	else
 	{
-		if (static_cast<double>(num) <= 999999)
-			std::cout << static_cast<double>(num) << ".0" << std::endl;
+		if (d_nbr - static_cast<int>(d_nbr) == 0)
+			std::cout << static_cast<float>(d_nbr) << ".0f" << std::endl;
 		else
-			std::cout << static_cast<double>(num) << std::endl;
+			std::cout << static_cast<float>(d_nbr) << "f" << std::endl;
 	}
+		
+	std::cout << "Double: ";
+	if (number > std::numeric_limits<double>::max() || number < -std::numeric_limits<double>::max())
+		std::cout << "overflow.\n";
+	else
+	{
+		if (static_cast<double>(d_nbr) -  static_cast<int>(d_nbr) == 0)
+			std::cout << static_cast<double>(d_nbr) << ".0" << std::endl;
+		else
+			std::cout << static_cast<double>(d_nbr) << std::endl;
+	}	
 }
 
-void ScalarConverter::convertSpecial(const std::string &str)
+void	doPInff(std::string)
 {
-	std::cout << "char: impossible" << std::endl;
-	std::cout << "int: impossible" << std::endl;
+	std::cout << "Char: not possible" << std::endl;
+	std::cout << "Int: not possible" << std::endl;
+	std::cout << "float: +inff" << std::endl;
+	std::cout << "Char: +inf" << std::endl;
+}
 
-	if (str == "+inff" || str == "+inf")
+void	doNInff(std::string)
+{
+	std::cout << "Char: not possible" << std::endl;
+	std::cout << "Int: not possible" << std::endl;
+	std::cout << "float: -inff" << std::endl;
+	std::cout << "Char: -inf" << std::endl;
+}
+
+void	doNanf(std::string)
+{
+	std::cout << "Char: not possible" << std::endl;
+	std::cout << "Int: not possible" << std::endl;
+	std::cout << "float: nanf" << std::endl;
+	std::cout << "Char: nan" << std::endl;
+}
+
+void	doPInf(std::string)
+{
+	std::cout << "Char: not possible" << std::endl;
+	std::cout << "Int: not possible" << std::endl;
+	std::cout << "float: +inff" << std::endl;
+	std::cout << "Char: +inf" << std::endl;
+}
+
+void	doNInf(std::string)
+{
+	std::cout << "Char: not possible" << std::endl;
+	std::cout << "Int: not possible" << std::endl;
+	std::cout << "float: -inff" << std::endl;
+	std::cout << "Char: -inf" << std::endl;
+}
+
+void	doNan(std::string)
+{
+	std::cout << "Char: not possible" << std::endl;
+	std::cout << "Int: not possible" << std::endl;
+	std::cout << "float: nanf" << std::endl;
+	std::cout << "Char: nan" << std::endl;
+}
+
+
+void doConversion(std::string str, TYPE type)
+{
+
+	typedef void (*ConversionFunction)(std::string);
+	ConversionFunction conversionFunctions[] = {
+		&doChar,
+		&doInteger,
+		&doFloat,
+		&doDouble,
+		&doPInff,
+		&doNInff,
+		&doNanf,
+		&doPInf,
+		&doNInff,
+		&doNan
+	};
+	for (int i = 0; i < 10; i++)
 	{
-		std::cout << "float: +inff" << std::endl;
-		std::cout << "double: +inf" << std::endl;
+		if (type == i)
+			conversionFunctions[i](str);
 	}
-	else if (str == "-inff" || str == "-inf")
-	{
-		std::cout << "float: -inff" << std::endl;
-		std::cout << "double: -inf" << std::endl;
-	}
-	else if (str == "nanf" || str == "nan")
-	{
-		std::cout << "float: nanf" << std::endl;
-		std::cout << "double: nan" << std::endl;
-	}
+	
+}
+
+void ScalarConverter::convert(std::string str)
+{
+	TYPE type = getType(str);
+	if (type == INVALID)
+		throw ScalarConverter::ImpossibleConversion();
+	doConversion(str, type);
 }
