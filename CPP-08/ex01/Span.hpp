@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/11 21:20:20 by lebarbos          #+#    #+#             */
+/*   Updated: 2025/08/11 21:20:21 by lebarbos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
@@ -14,35 +26,26 @@ private:
 	unsigned int _maxSize;
 	
 public:
-	// Constructors and Destructor
 	Span(unsigned int N);
 	Span(const Span& other);
 	~Span();
-	
-	// Assignment operator
 	Span& operator=(const Span& other);
-	
-	// Main methods
 	void addNumber(int number);
 	int shortestSpan() const;
 	int longestSpan() const;
 	
-	// Method to add a range of iterators
 	template<typename Iterator>
 	void addNumbers(Iterator begin, Iterator end)
 	{
 		typename std::iterator_traits<Iterator>::difference_type distance = std::distance(begin, end);
 		if (_numbers.size() + distance > _maxSize)
 			throw std::runtime_error("Cannot add numbers: would exceed maximum size");
-		
 		_numbers.insert(_numbers.end(), begin, end);
 	}
 	
-	// Getters for debug
 	unsigned int size() const { return _numbers.size(); }
 	unsigned int maxSize() const { return _maxSize; }
 	
-	// Custom exceptions
 	class FullContainerException : public std::exception
 	{
 	public:

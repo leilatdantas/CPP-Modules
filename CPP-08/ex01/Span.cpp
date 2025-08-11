@@ -1,22 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/11 21:20:43 by lebarbos          #+#    #+#             */
+/*   Updated: 2025/08/11 21:20:44 by lebarbos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
-// Constructor
 Span::Span(unsigned int N) : _maxSize(N)
 {
 	_numbers.reserve(N);
 }
 
-// Copy constructor
 Span::Span(const Span& other) : _numbers(other._numbers), _maxSize(other._maxSize)
 {
 }
 
-// Destructor
 Span::~Span()
 {
 }
 
-// Assignment operator
 Span& Span::operator=(const Span& other)
 {
 	if (this != &other)
@@ -27,7 +35,6 @@ Span& Span::operator=(const Span& other)
 	return *this;
 }
 
-// Add a number
 void Span::addNumber(int number)
 {
 	if (_numbers.size() >= _maxSize)
@@ -36,7 +43,6 @@ void Span::addNumber(int number)
 	_numbers.push_back(number);
 }
 
-// Find the shortest span (difference)
 int Span::shortestSpan() const
 {
 	if (_numbers.size() < 2)
@@ -56,7 +62,6 @@ int Span::shortestSpan() const
 	return minSpan;
 }
 
-// Find the longest span (difference)
 int Span::longestSpan() const
 {
 	if (_numbers.size() < 2)
