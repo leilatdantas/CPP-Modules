@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:18:37 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/08/11 21:18:38 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/09/23 20:35:20 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void iter(T *array, size_t length, F func)
 		func(array[i]);
 }
 
-// Função auxiliar para testes
+// Helper function for testing
 template<typename T>
 void print(T const &x)
 {
