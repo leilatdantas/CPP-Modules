@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:52:03 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/03/05 16:48:19 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/09/24 11:50:04 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,48 +258,48 @@ void	doPInff(std::string)
 {
 	std::cout << "Char: not possible" << std::endl;
 	std::cout << "Int: not possible" << std::endl;
-	std::cout << "float: +inff" << std::endl;
-	std::cout << "Char: +inf" << std::endl;
+	std::cout << "Float: +inff" << std::endl;
+	std::cout << "Double: +inf" << std::endl;
 }
 
 void	doNInff(std::string)
 {
 	std::cout << "Char: not possible" << std::endl;
 	std::cout << "Int: not possible" << std::endl;
-	std::cout << "float: -inff" << std::endl;
-	std::cout << "Char: -inf" << std::endl;
+	std::cout << "Float: -inff" << std::endl;
+	std::cout << "Double: -inf" << std::endl;
 }
 
 void	doNanf(std::string)
 {
 	std::cout << "Char: not possible" << std::endl;
 	std::cout << "Int: not possible" << std::endl;
-	std::cout << "float: nanf" << std::endl;
-	std::cout << "Char: nan" << std::endl;
+	std::cout << "Float: nanf" << std::endl;
+	std::cout << "Double: nan" << std::endl;
 }
 
 void	doPInf(std::string)
 {
 	std::cout << "Char: not possible" << std::endl;
 	std::cout << "Int: not possible" << std::endl;
-	std::cout << "float: +inff" << std::endl;
-	std::cout << "Char: +inf" << std::endl;
+	std::cout << "Float: +inff" << std::endl;
+	std::cout << "Double: +inf" << std::endl;
 }
 
 void	doNInf(std::string)
 {
 	std::cout << "Char: not possible" << std::endl;
 	std::cout << "Int: not possible" << std::endl;
-	std::cout << "float: -inff" << std::endl;
-	std::cout << "Char: -inf" << std::endl;
+	std::cout << "Float: -inff" << std::endl;
+	std::cout << "Double: -inf" << std::endl;
 }
 
 void	doNan(std::string)
 {
 	std::cout << "Char: not possible" << std::endl;
 	std::cout << "Int: not possible" << std::endl;
-	std::cout << "float: nanf" << std::endl;
-	std::cout << "Char: nan" << std::endl;
+	std::cout << "Float: nanf" << std::endl;
+	std::cout << "Double: nan" << std::endl;
 }
 
 
@@ -316,7 +316,7 @@ void doConversion(std::string str, TYPE type)
 		&doNInff,
 		&doNanf,
 		&doPInf,
-		&doNInff,
+		&doNInf,
 		&doNan
 	};
 	for (int i = 0; i < 10; i++)
