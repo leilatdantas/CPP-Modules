@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 21:18:55 by lebarbos          #+#    #+#              #
-#    Updated: 2025/08/11 21:18:56 by lebarbos         ###   ########.fr        #
+#    Updated: 2025/09/26 17:14:50 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-%.o: %.cpp
+%.o: %.cpp iter.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

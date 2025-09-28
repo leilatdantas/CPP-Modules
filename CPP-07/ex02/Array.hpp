@@ -6,10 +6,9 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:19:05 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/08/11 21:19:06 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/09/26 17:23:15 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
@@ -17,7 +16,7 @@
 #include <iostream>
 #include <exception>
 
-template<typename T>
+template <typename T>
 class Array
 {
 private:
@@ -27,7 +26,7 @@ private:
 public:
 	// Default constructor - creates an empty array
 	Array() : _array(NULL), _size(0) {}
-	
+
 	// Constructor with parameter - creates an array with n elements
 	Array(unsigned int n) : _array(new T[n]), _size(n)
 	{
@@ -35,19 +34,20 @@ public:
 		for (unsigned int i = 0; i < _size; i++)
 			_array[i] = T();
 	}
-	
+
 	// Copy constructor
-	Array(const Array &other) : _array(NULL), _size(0)
+	Array(const Array &other) : _array(new T[other._size]), _size(other._size)
 	{
-		*this = other;
+		for (unsigned int i = 0; i < _size; i++)
+			_array[i] = other._array[i];
 	}
-	
+
 	// Destructor
 	~Array()
 	{
 		delete[] _array;
 	}
-	
+
 	// Assignment operator
 	Array &operator=(const Array &other)
 	{
@@ -61,7 +61,7 @@ public:
 		}
 		return *this;
 	}
-	
+
 	// Access operator with bounds checking
 	T &operator[](unsigned int index)
 	{
@@ -69,7 +69,7 @@ public:
 			throw std::out_of_range("Index out of bounds");
 		return _array[index];
 	}
-	
+
 	// Const access operator
 	const T &operator[](unsigned int index) const
 	{
@@ -77,7 +77,7 @@ public:
 			throw std::out_of_range("Index out of bounds");
 		return _array[index];
 	}
-	
+
 	// Function to get the size
 	unsigned int size() const
 	{

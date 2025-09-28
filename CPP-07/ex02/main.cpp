@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:19:11 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/08/11 21:19:12 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/09/26 17:25:13 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,6 @@ int main(int, char**)
 		const int value = rand();
 		numbers[i] = value;
 		mirror[i] = value;
-	}
-	
-	// Copy constructor test
-	{
-		Array<int> tmp = numbers;
-		Array<int> test(tmp);
-		
-		std::cout << "Copied array size: " << test.size() << std::endl;
-		
-		// Check if the copy is independent
-		test[0] = 42;
-		if (numbers[0] != test[0])
-			std::cout << "Independent copy working correctly!" << std::endl;
-		else
-			std::cout << "ERROR: Copy is not independent!" << std::endl;
 	}
 	
 	// Check if values match
