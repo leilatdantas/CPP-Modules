@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:22:01 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/10/04 17:03:15 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/04 18:04:48 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,51 +27,51 @@
 class PmergeMe
 {
 private:
-    // Generate Jacobsthal sequence up to n
+    // jacobsthal sequence up to n
     static std::vector<size_t> generateJacobsthal(size_t n);
     
-    // Binary search for insertion position
+    // binary search for vector
     static std::vector<int>::iterator binarySearch(
         std::vector<int>::iterator first,
         std::vector<int>::iterator last,
         const int& value);
     
-    // Recursive Ford-Johnson merge-insert sort for vector
+    // ford-johnson sort for vector
     static void fordJohnsonVector(std::vector<int>& arr);
     
-    // Binary search for insertion position (deque version)
+    // binary search for deque
     static std::deque<int>::iterator binarySearchDeque(
         std::deque<int>::iterator first,
         std::deque<int>::iterator last,
         const int& value);
     
-    // Ford-Johnson merge-insert sort implementation for deque
+    // ford-johnson sort for deque
     static void fordJohnsonDeque(std::deque<int>& arr);
     
-    // Convert string to integer with validation
+    // string to int with validation
     static int stringToInt(const std::string& str);
 
 public:
-    // Orthodox Canonical Form
+    // orthodox canonical form
     PmergeMe();
     PmergeMe(const PmergeMe& other);
     ~PmergeMe();
     PmergeMe& operator=(const PmergeMe& other);
     
-    // Main sorting function
+    // main sort function
     static void sort(int argc, char* argv[]);
 };
 
-// Custom Exception class
-class PmergeMeException : public std::exception
-{
-private:
-    std::string _message;
+// // custom exception
+// class PmergeMeException : public std::exception
+// {
+// private:
+//     std::string _message;
     
-public:
-    PmergeMeException(const std::string& message);
-    virtual ~PmergeMeException() throw();
-    virtual const char* what() const throw();
-};
+// public:
+//     PmergeMeException(const std::string& message);
+//     virtual ~PmergeMeException() throw();
+//     virtual const char* what() const throw();
+// };
 
 #endif
