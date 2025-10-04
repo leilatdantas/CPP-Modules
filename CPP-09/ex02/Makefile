@@ -6,7 +6,7 @@
 #    By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 21:22:11 by lebarbos          #+#    #+#              #
-#    Updated: 2025/08/11 21:22:12 by lebarbos         ###   ########.fr        #
+#    Updated: 2025/10/04 16:50:27 by lebarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ INCLUDES_DIR = includes
 SOURCES_DIR = sources
 OBJECTS_DIR = objects
 
-SOURCES = main.cpp
+SOURCES = main.cpp PmergeMe.cpp
 OBJECTS = $(SOURCES:%.cpp=$(OBJECTS_DIR)/%.o)
 
 all: $(NAME)

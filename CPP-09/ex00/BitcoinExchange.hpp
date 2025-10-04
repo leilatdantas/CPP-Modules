@@ -6,23 +6,25 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:21:32 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/08/11 21:21:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/04 12:19:17 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <map>
-#include <string>
-#include <fstream>
 #include <iostream>
+#include <fstream>
 #include <sstream>
+#include <string>
+#include <map>
 #include <stdexcept>
+#include <cctype>
 
 class BitcoinExchange
 {
 private:
+	// use of map -> ordened key -> efficient search 
 	std::map<std::string, float> _database;
 	
 	bool isValidDate(const std::string& date) const;

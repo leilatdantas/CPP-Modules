@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:21:51 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/08/11 21:21:52 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/04 12:56:03 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ double RPN::evaluate(const std::string& expression)
 				throw RPNException("Error: insufficient operands");
 			
 			double b = _stack.top(); _stack.pop();
-			double a = _stack.top(); _stack.pop();
+			double a = _stack.top(); _stack.pop(); // important order - 1st operator is the second one on stack
 			
 			try
 			{
