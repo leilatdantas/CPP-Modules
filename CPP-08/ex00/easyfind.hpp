@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:19:32 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/08/11 21:19:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:20:19 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <iterator>
 #include <exception>
+
 
 class NotFoundException : public std::exception
 {

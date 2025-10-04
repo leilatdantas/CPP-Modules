@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:19:36 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/09/23 20:52:51 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/02 20:10:58 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,23 @@
 #include <list>
 #include <deque>
 
+/**
+ * @file main.cpp
+ * @brief Demonstrates the usage of the easyfind function with various STL containers.
+ *
+ * This program tests the easyfind function with different standard containers:
+ * - std::vector<int>: A dynamic array that allows fast random access and efficient insertion/removal at the end.
+ * - std::list<int>: A doubly-linked list supporting efficient insertion/removal anywhere, but slower random access.
+ * - std::deque<int>: A double-ended queue supporting fast insertion/removal at both ends.
+ * - const std::vector<int>: Demonstrates usage with a constant container.
+ *
+ * The program:
+ * 1. Fills each container with sample data.
+ * 2. Prints the contents of each container.
+ * 3. Attempts to find specific elements using easyfind, handling both found and not found cases.
+ * 4. Demonstrates exception handling when an element is not found.
+ *
+ */
 int main()
 {
 	std::cout << "=== Test with std::vector ===" << std::endl;

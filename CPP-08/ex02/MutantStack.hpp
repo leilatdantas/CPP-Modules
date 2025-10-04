@@ -6,7 +6,7 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:21:17 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/08/11 21:21:19 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/04 11:20:56 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,31 @@
 #include <stack>
 #include <deque>
 
-template<typename T, typename Container = std::deque<T> >
-class MutantStack : public std::stack<T, Container>
+template <typename T>
+class MutantStack : public std::stack<T>
 {
 public:
-	// Constructors and destructor
-	MutantStack() : std::stack<T, Container>() {}
-	MutantStack(const MutantStack& other) : std::stack<T, Container>(other) {}
+	// Orthodox Canonical Form
+	MutantStack() {}
+	MutantStack(const MutantStack& src) : std::stack<T>(src) {}
+	MutantStack<T>& operator=(const MutantStack<T>& src)
+	{
+		if (this != &src)
+		{
+			this->c = src.c;
+		}
+		return (*this);
+	}
 	~MutantStack() {}
 
-	// Assignment operator
-	MutantStack& operator=(const MutantStack& other)
-	{
-		if (this != &other)
-			std::stack<T, Container>::operator=(other);
-		return *this;
-	}
+	// Iterator typedefs
+	typedef typename std::stack<T>::container_type container_type;
+	typedef typename container_type::iterator iterator;
+	typedef typename container_type::const_iterator const_iterator;
+	typedef typename container_type::reverse_iterator reverse_iterator;
+	typedef typename container_type::const_reverse_iterator const_reverse_iterator;
 
-	// Iterator types based on the underlying container
-	typedef typename Container::iterator iterator;
-	typedef typename Container::const_iterator const_iterator;
-	typedef typename Container::reverse_iterator reverse_iterator;
-	typedef typename Container::const_reverse_iterator const_reverse_iterator;
-
-	// Methods to get iterators
+	// Iterator methods
 	iterator begin()
 	{
 		return this->c.begin();
@@ -81,4 +82,4 @@ public:
 	}
 };
 
-#endif
+#endif // MUTANTSTACK_HPP
