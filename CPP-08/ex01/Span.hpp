@@ -6,10 +6,9 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:20:20 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/10/04 10:28:33 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/04 18:31:19 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
@@ -26,7 +25,7 @@ private:
     std::vector<int> _numbers;
     unsigned int _maxSize;
     
-    // Private default constructor to force N parameter
+    // private default constructor to force n parameter
     Span();
     
 public:
@@ -39,7 +38,7 @@ public:
     int shortestSpan() const;
     int longestSpan() const;
     
-    // Template function for range insertion
+    // template function for range insertion
     template<typename Iterator>
     void addNumbers(Iterator begin, Iterator end)
     {
@@ -49,11 +48,11 @@ public:
         _numbers.insert(_numbers.end(), begin, end);
     }
     
-    // Utility functions
+    // utility functions
     unsigned int size() const { return _numbers.size(); }
     unsigned int maxSize() const { return _maxSize; }
     
-    // Exception classes
+    // exception classes
     class FullContainerException : public std::exception
     {
     public:

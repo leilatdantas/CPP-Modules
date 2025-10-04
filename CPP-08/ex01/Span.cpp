@@ -6,29 +6,25 @@
 /*   By: lebarbos <lebarbos@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:20:43 by lebarbos          #+#    #+#             */
-/*   Updated: 2025/10/04 10:38:03 by lebarbos         ###   ########.fr       */
+/*   Updated: 2025/10/04 18:30:35 by lebarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-// Constructor
 Span::Span(unsigned int N) : _maxSize(N)
 {
-    _numbers.reserve(N); // Reserve space for efficiency
+    _numbers.reserve(N);
 }
 
-// Copy constructor
 Span::Span(const Span& other) : _numbers(other._numbers), _maxSize(other._maxSize)
 {
 }
 
-// Destructor
 Span::~Span()
 {
 }
 
-// Assignment operator
 Span& Span::operator=(const Span& other)
 {
     if (this != &other)
@@ -39,7 +35,7 @@ Span& Span::operator=(const Span& other)
     return *this;
 }
 
-// Add single number
+// add single number
 void Span::addNumber(int number)
 {
     if (_numbers.size() >= _maxSize)
@@ -47,7 +43,7 @@ void Span::addNumber(int number)
     _numbers.push_back(number);
 }
 
-// Find shortest span between any two numbers
+// find shortest span between any two numbers
 int Span::shortestSpan() const
 {
     if (_numbers.size() < 2)
@@ -66,13 +62,12 @@ int Span::shortestSpan() const
     return minSpan;
 }
 
-// Find longest span between any two numbers
+// find longest span 
 int Span::longestSpan() const
 {
     if (_numbers.size() < 2)
         throw NoSpanException();
     
-    // ✅ C++98 GARANTIDO - Manual implementation
     int minVal = _numbers[0];
     int maxVal = _numbers[0];
     
