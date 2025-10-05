@@ -295,9 +295,10 @@ int main()
     subjectTestsWithDeque();
     subjectTestsWithVector();
     
-    // std::cout << "\n=== ADDITIONAL TESTS ===" << std::endl;
-    // testCopyAndAssignment();
-    // testWithStrings();
+    std::cout << "\n=== ADDITIONAL TESTS ===" << std::endl;
+	testBasicOperations();
+    testCopyAndAssignment();
+    testWithStrings();
 
     return 0;
 }

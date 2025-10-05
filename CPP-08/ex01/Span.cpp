@@ -81,3 +81,11 @@ int Span::longestSpan() const
     
     return maxVal - minVal;
 }
+
+void Span::printNumbers() const {
+    std::cout << "Span content: ";
+        for (std::vector<int>::const_iterator it = _numbers.begin(); it != _numbers.end(); ++it) {
+            std::cout << *it << " ";
+        }
+    std::cout << std::endl;
+}

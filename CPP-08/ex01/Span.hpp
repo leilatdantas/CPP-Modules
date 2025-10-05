@@ -37,6 +37,8 @@ public:
     void addNumber(int number);
     int shortestSpan() const;
     int longestSpan() const;
+
+    void printNumbers() const;
     
     // template function for range insertion
     template<typename Iterator>

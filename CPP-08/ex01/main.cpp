@@ -77,14 +77,10 @@ void testAddNumbers() {
 	}
 }
 
-void testCppVersion() {
-	std::cout << "_cplusplus = " << __cplusplus << std::endl; 
-}
 
 
 int main()
 {
-	testCppVersion();
 	std::cout << "=== Subject Test ===" << std::endl;
 	{
 		Span sp = Span(5);
@@ -134,8 +130,9 @@ int main()
 
 		sp.addNumbers(numbers.begin(), numbers.end());
 		sp.addNumber(5);
-		sp.addNumber(25);
+		sp.addNumber(62);
 
+		sp.printNumbers();
 		std::cout << "Size: " << sp.size() << "/" << sp.maxSize() << std::endl;
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
